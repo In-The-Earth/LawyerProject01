@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -49,25 +48,23 @@ public class Main extends Application {
         return connection;
     }
 
-    static void change_scene(Class cass,Button btn, String fxml)throws IOException {
-        Parent loader = FXMLLoader.load(cass.getResource(fxml));
-        Scene scene = new Scene(loader);
+    static void change_scene(Class cass, Button btn, String fxml)throws IOException {
+        FXMLLoader loader = new FXMLLoader(cass.getResource(fxml));
+        Scene scene = new Scene(loader.load());
         Stage a = (Stage) btn.getScene().getWindow();
         a.setScene(scene);
     }
 
+    static void change_scene(FXMLLoader loader,Class cass, Button btn, String fxml)throws IOException {
+        Scene scene = new Scene(loader.load());
+        Stage a = (Stage) btn.getScene().getWindow();
+        a.setScene(scene);
+    }
 
-//    public void createTable() throws Exception{
-//        try {
-//            Connection connection = getConnection();
-//            PreparedStatement create = connection.prepareStatement(
-//                    "CREATE TABLE IF NOT EXISTS Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));");
-//            create.executeUpdate();
-//        }
-//        catch (Exception e){
-//            System.out.print(e);
-//        }
-//    }
+    static FXMLLoader getLoader(Class cass,String fxml){
+        FXMLLoader loader = new FXMLLoader(cass.getResource(fxml));
+        return loader;
+    }
 
     public static void main(String[] args) {
         launch(args);

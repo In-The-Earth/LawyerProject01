@@ -4,10 +4,7 @@ import Model.Client;
 import Model.Lawyer;
 import Model.Users;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DBhelper {
@@ -66,6 +63,64 @@ public class DBhelper {
             System.out.println(e);
         }
         return clientArrayList;
+    }
+
+    static public void write_Users(String username,String password, String userType){
+        String sql = "INSERT INTO Users(Username,Password,UserType) VALUES(?,?,?)";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+            preparedStatement.setString(3,userType);
+            preparedStatement.executeUpdate();
+            System.out.println("successW01");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    static public void write_Lawyer(String username,String password, String name, String email, String tel, String date){
+        String sql = "INSERT INTO Lawyer(Username,Password,Name,Email,Tel,Date) VALUES(?,?,?,?,?,?)";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+            preparedStatement.setString(3,name);
+            preparedStatement.setString(4,email);
+            preparedStatement.setString(5,tel);
+            preparedStatement.setString(6,date);
+            preparedStatement.executeUpdate();
+            System.out.println("successW02");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    static public void write_Client(String username,String password, String name, String email,String id_card, String tel, String date){
+        String sql = "INSERT INTO Client(Username,Password,Name,Email,Id_Card,Tel,Date) VALUES(?,?,?,?,?,?,?)";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,password);
+            preparedStatement.setString(3,name);
+            preparedStatement.setString(4,email);
+            preparedStatement.setString(5,id_card);
+            preparedStatement.setString(6,tel);
+            preparedStatement.setString(7,date);
+            preparedStatement.executeUpdate();
+            System.out.println("successW03");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 }

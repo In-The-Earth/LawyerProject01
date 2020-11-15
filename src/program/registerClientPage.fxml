@@ -84,6 +84,21 @@
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="res_btn" layoutX="158.0" layoutY="501.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="485.0" text="Register" />
+      <Button fx:id="res_btn" layoutX="158.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleGoRes_btnOnAction" prefHeight="44.0" prefWidth="485.0" text="Register" />
+      <Label fx:id="ut_txt" layoutX="643.0" layoutY="342.0" prefHeight="21.0" prefWidth="192.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="pi_txt" layoutX="643.0" layoutY="457.0" prefHeight="21.0" prefWidth="169.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="ci_txt" layoutX="375.0" layoutY="73.0" prefHeight="21.0" prefWidth="192.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
