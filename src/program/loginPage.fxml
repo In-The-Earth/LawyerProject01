@@ -7,48 +7,58 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.LoginPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.LoginPageController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="login_btn" layoutX="115.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleGoLogin_btnOnAction" prefHeight="51.0" prefWidth="571.0" text="Login">
+            <Button fx:id="login_btn" layoutX="189.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleGoLogin_btnOnAction" prefHeight="51.0" prefWidth="422.0" style="-fx-border-radius: 15; -fx-background-radius: 15;" text="Sign in">
                <font>
                   <Font name="System Italic" size="23.0" />
                </font>
             </Button>
-            <Label layoutX="126.0" layoutY="202.0" text="Username :">
+            <Label layoutX="182.0" layoutY="126.0" text="Username ">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label layoutX="126.0" layoutY="295.0" text="Passwords :">
+            <Label layoutX="189.0" layoutY="238.0" text="Password">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <Button fx:id="cnac_btn" layoutX="115.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleGoCnac_btnOnAction" style="-fx-background-color: transparent;" text="Create a new account">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-            <TextField fx:id="username_text" layoutX="264.0" layoutY="195.0" prefHeight="51.0" prefWidth="422.0" promptText="input your username">
+            <TextField fx:id="username_text" layoutX="189.0" layoutY="174.0" prefHeight="51.0" prefWidth="422.0" promptText="Enter username" style="-fx-border-radius: 30; -fx-background-radius: 30;">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="pass_text" layoutX="264.0" layoutY="285.0" prefHeight="51.0" prefWidth="422.0" promptText="input your passwords">
+            <Button fx:id="cnac_btn" layoutX="467.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleGoCnac_btnOnAction" style="-fx-background-color: transparent;" text="Sign up" underline="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="pass_text" layoutX="189.0" layoutY="285.0" prefHeight="51.0" prefWidth="422.0" promptText="Enter password" style="-fx-background-radius: 30; -fx-border-radius: 30;">
                <font>
                   <Font size="24.0" />
                </font>
             </PasswordField>
-            <Label fx:id="uw_txt" layoutX="497.0" layoutY="174.0" prefHeight="21.0" prefWidth="189.0" textFill="RED">
+            <Label fx:id="uw_txt" layoutX="622.0" layoutY="189.0" prefHeight="21.0" prefWidth="158.0" textFill="RED">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="paw_txt" layoutX="497.0" layoutY="264.0" prefHeight="21.0" prefWidth="189.0" textFill="RED">
+            <Label fx:id="paw_txt" layoutX="615.0" layoutY="300.0" prefHeight="21.0" prefWidth="158.0" textFill="RED">
                <font>
                   <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="276.0" layoutY="435.0" text="Don't have an account?">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="307.0" layoutY="55.0" prefHeight="51.0" prefWidth="201.0" text="Welcome Back">
+               <font>
+                  <Font size="30.0" />
                </font>
             </Label>
          </children></AnchorPane>
