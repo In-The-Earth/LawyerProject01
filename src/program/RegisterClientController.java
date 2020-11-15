@@ -55,7 +55,11 @@ public class RegisterClientController {
             } else {
                 DBhelper.write_Client(username_text.getText(), pass_text.getText(), name_text.getText(), email_text.getText(), id_card_text.getText(), tel_text.getText(), date_pick.getValue().toString());
                 DBhelper.write_Users(username_text.getText(), pass_text.getText(), "C");
-                Main.change_scene(getClass(), res_btn, "loginPage.fxml");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,"Registration Success!", ButtonType.OK);
+                alert.showAndWait();
+                if(alert.getResult() == ButtonType.OK){
+                    Main.change_scene(getClass(), res_btn, "loginPage.fxml");
+                }
             }
         }
 
