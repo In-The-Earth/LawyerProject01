@@ -26,7 +26,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <Button layoutX="115.0" layoutY="426.0" mnemonicParsing="false" style="-fx-background-color: tranparent;" text="Create a new account">
+            <Button fx:id="cnac_btn" layoutX="115.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleGoCnac_btnOnAction" style="-fx-background-color: transparent;" text="Create a new account">
                <font>
                   <Font size="17.0" />
                </font>

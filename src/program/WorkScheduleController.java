@@ -15,9 +15,6 @@ public class WorkScheduleController {
 
     @FXML
     public void handleGoLogin_btnOnAction(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
-        Scene scene = new Scene(loader);
-        Stage a = (Stage) back_btn.getScene().getWindow();
-        a.setScene(scene);
+        Main.change_scene(getClass(),back_btn,"loginPage.fxml");
     }
 }
