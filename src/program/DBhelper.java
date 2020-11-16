@@ -2,6 +2,7 @@ package program;
 
 import Model.Client;
 import Model.Lawyer;
+import Model.Schedule;
 import Model.Users;
 
 import java.sql.*;
@@ -65,6 +66,25 @@ public class DBhelper {
         return clientArrayList;
     }
 
+    static public ArrayList<Schedule> read_Schedule(){
+        ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
+        String sql = "SELECT ID,Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup FROM Schedule";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                scheduleArrayList.add(new Schedule(resultSet.getInt("ID"),resultSet.getInt("Client_ID"),resultSet.getInt("Lawyer_ID"),resultSet.getString("TypeCase"),
+                        resultSet.getString("Status"),resultSet.getString("TypeWhere"),resultSet.getString("Time"),resultSet.getString("DAY"),resultSet.getString("ID_sup")));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return scheduleArrayList;
+    }
+
     static public void write_Users(String username,String password, String userType){
         String sql = "INSERT INTO Users(Username,Password,UserType) VALUES(?,?,?)";
         Connection connection = null;
@@ -117,6 +137,28 @@ public class DBhelper {
             preparedStatement.setString(7,date);
             preparedStatement.executeUpdate();
             System.out.println("successW03");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    static public void write_Schedule(int client_id,int lawyer_id, String typeCase, String status,String typeWhere, String time, String day, String idSup){
+        String sql = "INSERT INTO Schedule(Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup) VALUES(?,?,?,?,?,?,?,?)";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, String.valueOf(client_id));
+            preparedStatement.setString(2, String.valueOf(lawyer_id));
+            preparedStatement.setString(3,typeCase);
+            preparedStatement.setString(4,status);
+            preparedStatement.setString(5,typeWhere);
+            preparedStatement.setString(6,time);
+            preparedStatement.setString(7,day);
+            preparedStatement.setString(8,idSup);
+            preparedStatement.executeUpdate();
+            System.out.println("successW04");
         }
         catch (Exception e){
             System.out.println(e);

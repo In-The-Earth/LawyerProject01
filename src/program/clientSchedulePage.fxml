@@ -1,11 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.ClientScheduleController">
    <children>
       <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoLogout_btnOnAction" text="Logout" />
+      <GridPane layoutX="-1.0" layoutY="227.0" prefHeight="342.0" prefWidth="800.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="m8" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="m9" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="m10" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="tu12" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Button fx:id="m11" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="tu11" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="tu10" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="tu9" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="tu8" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="m15" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Button fx:id="m14" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Button fx:id="m13" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Button fx:id="m12" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Button fx:id="w15" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Button fx:id="w14" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <Button fx:id="w13" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Button fx:id="w12" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Button fx:id="w11" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="w10" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="w9" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="w8" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="tu15" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Button fx:id="tu14" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Button fx:id="tu13" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Button fx:id="f15" mnemonicParsing="false" onAction="#handleGoF15_btnOnAction" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <Button fx:id="f14" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <Button fx:id="f13" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Button fx:id="f12" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Button fx:id="f11" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button fx:id="f10" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="th15" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Button fx:id="th14" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Button fx:id="th13" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Button fx:id="th12" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Button fx:id="th11" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button fx:id="th10" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="f9" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="f8" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button fx:id="th9" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button fx:id="th8" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="2" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="89.0" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="89.0" GridPane.rowIndex="2" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="89.0" GridPane.rowIndex="3" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="89.0" GridPane.rowIndex="4" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="89.0" GridPane.rowIndex="5" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="89.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="3" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="4" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="5" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="6" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="7" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="58.0" stroke="BLACK" strokeType="INSIDE" width="90.0" GridPane.columnIndex="8" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="08.00-09.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="09.00-10.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="10.00-11.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="15.00-16.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="14.00-15.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="13.00-14.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="12.00-13.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <children>
+                  <Label layoutX="13.0" layoutY="20.0" prefHeight="17.0" prefWidth="64.0" text="11.00-12.00" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <Line endX="-26.141571044921875" endY="58.85785675048828" startX="-113.43446350097656" startY="2.564965009689331" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="44.0" layoutY="6.0" prefHeight="17.0" prefWidth="30.0" text="time" textAlignment="CENTER" />
+                  <Label layoutX="12.0" layoutY="29.0" prefHeight="17.0" prefWidth="30.0" text="days" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="12.0" layoutY="29.0" prefHeight="17.0" prefWidth="64.0" text="Monday" textAlignment="CENTER" />
+                  <Label fx:id="d1" layoutX="12.0" layoutY="14.0" prefHeight="17.0" prefWidth="64.0" text="d1" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <Label layoutX="12.0" layoutY="29.0" prefHeight="17.0" prefWidth="64.0" text="Tuesday" textAlignment="CENTER" />
+                  <Label fx:id="d2" layoutX="12.0" layoutY="14.0" prefHeight="17.0" prefWidth="64.0" text="d2" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+               <children>
+                  <Label layoutX="12.0" layoutY="29.0" prefHeight="17.0" prefWidth="64.0" text="wednesday" textAlignment="CENTER" />
+                  <Label fx:id="d3" layoutX="11.0" layoutY="14.0" prefHeight="17.0" prefWidth="64.0" text="d3" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
+               <children>
+                  <Label layoutX="12.0" layoutY="29.0" prefHeight="17.0" prefWidth="64.0" text="thursday" textAlignment="CENTER" />
+                  <Label fx:id="d4" layoutX="12.0" layoutY="14.0" prefHeight="17.0" prefWidth="64.0" text="d4" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+               <children>
+                  <Label layoutX="12.0" layoutY="29.0" prefHeight="17.0" prefWidth="64.0" text="Friday" textAlignment="CENTER" />
+                  <Label fx:id="d5" layoutX="12.0" layoutY="14.0" prefHeight="17.0" prefWidth="64.0" text="d5" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+      <Button layoutX="620.0" layoutY="61.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="166.0" text="นัดของคุณทั้งหมด" />
+      <DatePicker fx:id="date_pick" layoutX="86.0" layoutY="61.0" prefHeight="44.0" prefWidth="181.0" />
+      <Button fx:id="show_btn" layoutX="86.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleGoShow_btnOnAction" prefHeight="44.0" prefWidth="181.0" text="แสดง" />
    </children>
 </AnchorPane>
