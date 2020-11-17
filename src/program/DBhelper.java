@@ -68,7 +68,7 @@ public class DBhelper {
 
     static public ArrayList<Schedule> read_Schedule(){
         ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
-        String sql = "SELECT ID,Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup FROM Schedule";
+        String sql = "SELECT ID,Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup,Description FROM Schedule";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
@@ -76,7 +76,7 @@ public class DBhelper {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 scheduleArrayList.add(new Schedule(resultSet.getInt("ID"),resultSet.getInt("Client_ID"),resultSet.getInt("Lawyer_ID"),resultSet.getString("TypeCase"),
-                        resultSet.getString("Status"),resultSet.getString("TypeWhere"),resultSet.getString("Time"),resultSet.getString("DAY"),resultSet.getString("ID_sup")));
+                        resultSet.getString("Status"),resultSet.getString("TypeWhere"),resultSet.getString("Time"),resultSet.getString("DAY"),resultSet.getString("ID_sup"),resultSet.getString("Description")));
             }
         }
         catch (Exception e){
@@ -143,8 +143,8 @@ public class DBhelper {
         }
     }
 
-    static public void write_Schedule(int client_id,int lawyer_id, String typeCase, String status,String typeWhere, String time, String day, String idSup){
-        String sql = "INSERT INTO Schedule(Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup) VALUES(?,?,?,?,?,?,?,?)";
+    static public void write_Schedule(int client_id,int lawyer_id, String typeCase, String status,String typeWhere, String time, String day, String idSup,String des){
+        String sql = "INSERT INTO Schedule(Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup,Description) VALUES(?,?,?,?,?,?,?,?,?)";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
@@ -157,6 +157,7 @@ public class DBhelper {
             preparedStatement.setString(6,time);
             preparedStatement.setString(7,day);
             preparedStatement.setString(8,idSup);
+            preparedStatement.setString(9,des);
             preparedStatement.executeUpdate();
             System.out.println("successW04");
         }
