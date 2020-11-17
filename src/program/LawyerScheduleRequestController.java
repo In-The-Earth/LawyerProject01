@@ -79,9 +79,9 @@ public class LawyerScheduleRequestController {
 //        });
 //    }
 
-    public void setUserSchedules(ArrayList<Schedule> userSchedules) {
-        this.userSchedules = userSchedules;
-    }
+//    public void setUserSchedules(ArrayList<Schedule> userSchedules) {
+//        this.userSchedules = userSchedules;
+//    }
 
     public void setUsername(String username) {
         this.username = username;
