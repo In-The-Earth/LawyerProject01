@@ -11,7 +11,8 @@ import java.io.IOException;
 
 public class WorkScheduleController {
     @FXML
-    private Button back_btn;
+    private Button back_btn,request_btn;
+
 
     private String username;
 
@@ -22,5 +23,10 @@ public class WorkScheduleController {
     @FXML
     public void handleGoLogout_btnOnAction(ActionEvent event) throws IOException {
         Main.change_scene(getClass(),back_btn,"loginPage.fxml");
+    }
+
+    @FXML
+    public void handleGoRequestLawyerPage_btnOnAction(ActionEvent event) throws IOException {
+        Main.change_scene(getClass(),request_btn,"lawyerScheduleRequest.fxml");
     }
 }

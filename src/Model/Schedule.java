@@ -12,6 +12,7 @@ public class Schedule {
     private String id_sup;
     private String des;
     private String lawyer_name;
+    private String client_name;
 
     public Schedule(int id, int client_id, int lawyer_id, String type_case, String status, String type_where, String time, String day, String id_sup, String des) {
         this.id = id;
@@ -33,6 +34,18 @@ public class Schedule {
         this.time = time;
         this.day = day;
         this.lawyer_name = lawyer_name;
+    }
+
+    public Schedule(String type_case, String type_where, String time, String day, String client_name) {
+        this.type_case = type_case;
+        this.type_where = type_where;
+        this.time = time;
+        this.day = day;
+        this.client_name = client_name;
+    }
+
+    public String getClient_name() {
+        return client_name;
     }
 
     public int getId() {
