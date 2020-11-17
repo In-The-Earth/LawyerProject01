@@ -5,13 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.LawyerScheduleRequestController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.LawyerScheduleRequestController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0">
-         <children>
-            <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="32.0" prefWidth="67.0" text="Back" />
-         </children>
-      </AnchorPane>
+      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="32.0" prefWidth="67.0" text="Back" />
       <TableView fx:id="table" layoutX="52.0" layoutY="69.0" prefHeight="508.0" prefWidth="709.0">
          <columns>
             <TableColumn fx:id="day_c" prefWidth="94.0" text="day" />

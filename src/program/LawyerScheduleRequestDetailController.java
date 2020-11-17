@@ -6,6 +6,7 @@ import Model.Schedule;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -17,11 +18,14 @@ import java.util.ArrayList;
 
 public class LawyerScheduleRequestDetailController {
 
+    private String username;
     private Client client;
     private String time;
     private String day;
+    private int id_schedule;
     private ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
     private ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
+    private ArrayList<Schedule> userArrayList = new ArrayList<>();
 
     @FXML
     private Button back_btn,accept_btn,reject_btn;
@@ -37,7 +41,24 @@ public class LawyerScheduleRequestDetailController {
             public void run() {
                 lawyerArrayList = DBhelper.read_Lawyer();
                 scheduleArrayList = DBhelper.read_Schedule();
-
+                System.out.println(time);
+                System.out.println(day);
+//                for(Lawyer l : lawyerArrayList){
+//                    if(l.getUsername().equals(username)){
+//                        userArrayList.ad
+//                    }
+//                }
+                for(Schedule u : scheduleArrayList){
+                    for(Lawyer l : lawyerArrayList){
+                        if(l.getUsername().equals(username)){
+                            if(u.getTime().equals(time)){
+                                if(u.getDay().equals(day)){
+                                    id_schedule = u.getId();
+                                }
+                            }
+                        }
+                    }
+                }
 
                 System.out.println(client.getUsername());
                 cid_txt.setText(Integer.toString(client.getId()));
@@ -55,6 +76,45 @@ public class LawyerScheduleRequestDetailController {
 
     @FXML
     public void handleGoBack_btnOnAction(ActionEvent event) throws IOException {
-        Main.change_scene(getClass(),back_btn,"WorkSchedulePage.fxml");
+        FXMLLoader loader = Main.getLoader(getClass(),"lawyerScheduleRequest.fxml");
+        Main.change_scene(loader,getClass(),back_btn,"lawyerScheduleRequest.fxml");
+        LawyerScheduleRequestController c = loader.getController();
+        c.setUsername(username);
+    }
+
+    @FXML
+    public void handleGoAccept_btnOnAction(ActionEvent event) throws IOException {
+        DBhelper.update_Status(id_schedule,"Accepted");
+
+        FXMLLoader loader = Main.getLoader(getClass(),"lawyerScheduleRequest.fxml");
+        Main.change_scene(loader,getClass(),accept_btn,"lawyerScheduleRequest.fxml");
+        LawyerScheduleRequestController c = loader.getController();
+        c.setUsername(username);
+    }
+
+    @FXML
+    public void handleGoReject_btnOnAction(ActionEvent event) throws IOException {
+        DBhelper.update_Status(id_schedule,"Reject");
+
+        FXMLLoader loader = Main.getLoader(getClass(),"lawyerScheduleRequest.fxml");
+        Main.change_scene(loader,getClass(),accept_btn,"lawyerScheduleRequest.fxml");
+        LawyerScheduleRequestController c = loader.getController();
+        c.setUsername(username);
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

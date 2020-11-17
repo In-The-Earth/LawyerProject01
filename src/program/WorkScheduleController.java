@@ -27,6 +27,9 @@ public class WorkScheduleController {
 
     @FXML
     public void handleGoRequestLawyerPage_btnOnAction(ActionEvent event) throws IOException {
-        Main.change_scene(getClass(),request_btn,"lawyerScheduleRequest.fxml");
+        FXMLLoader loader = Main.getLoader(getClass(),"lawyerScheduleRequest.fxml");
+        Main.change_scene(loader,getClass(),request_btn,"lawyerScheduleRequest.fxml");
+        LawyerScheduleRequestController c = loader.getController();
+        c.setUsername(username);
     }
 }

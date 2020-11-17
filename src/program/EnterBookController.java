@@ -2,6 +2,7 @@ package program;
 
 import Model.Client;
 import Model.Lawyer;
+import Model.Schedule;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ public class EnterBookController {
     private String time;
     private String day;
     private ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
+    private ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
     @FXML
     private Button back_btn,submit_btn;
     @FXML
@@ -37,6 +39,7 @@ public class EnterBookController {
             @Override
             public void run() {
                 lawyerArrayList = DBhelper.read_Lawyer();
+                scheduleArrayList = DBhelper.read_Schedule();
                 System.out.println(client.getUsername());
                 w1.setText("");
                 w2.setText("");
@@ -109,6 +112,10 @@ public class EnterBookController {
             w2.setText("choose Lawyer!");
             return;
         }
+        if(check_lawyer()){
+            w2.setText("This lawyer is busy \nin this selected time.");
+            return;
+        }
         String[] d = lch_cb.getValue().split(":");
         int id_ly = Integer.parseInt(d[0].trim());
         DBhelper.write_Schedule(client.getId(),id_ly,tch_cb.getValue(),"Request","Talk",time,day,"null",des_txt.getText());
@@ -117,5 +124,21 @@ public class EnterBookController {
         Main.change_scene(loader,getClass(),submit_btn,"clientSchedulePage.fxml");
         ClientScheduleController c = loader.getController();
         c.setUsername(client.getUsername());
+    }
+
+    public boolean check_lawyer(){
+        ArrayList<String> lawyers = new ArrayList<>();
+        String[] d = lch_cb.getValue().split(":");
+        int id_ly = Integer.parseInt(d[0].trim());
+        for(Schedule u : scheduleArrayList){
+            if(u.getLawyer_id() == id_ly) {
+                if (u.getDay().equals(day)) {
+                    if (u.getTime().equals(time)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

@@ -90,14 +90,24 @@ public class ClientScheduleController {
                             if(u.getStatus().equals("Request")){
 //                                System.out.println("successBtn01");
                                 btns[i].setStyle("-fx-background-color: Yellow");
-                                btns[i].setText("Booked");
+                                btns[i].setText("-Booked-\nRequest");
                             }
-
+                            else if(u.getStatus().equals("Accepted")){
+                                btns[i].setStyle("-fx-background-color: Green");
+                                btns[i].setText("-Booked-\nAccept");
+                            }else if(u.getStatus().equals("Reject")){
+                                btns[i].setStyle("-fx-background-color: Red");
+                                btns[i].setText("-Booked-\nReject");
+                            }
                         }
                         else {
-                            if(btns[i].getText().equals("Booked")){
+                            if(btns[i].getText().equals("-Booked-\nRequest")){
                                 continue;
-                            }else {
+                            }else if(btns[i].getText().equals("-Booked-\nAccept")){
+                                continue;
+                            }else if(btns[i].getText().equals("-Booked-\nReject")){
+                                continue;
+                            } else {
                                 btns[i].setText("-Free-");
                             }
                         }

@@ -58,13 +58,13 @@ public class Main extends Application {
         a.setScene(scene);
     }
 
-    static void change_scene(FXMLLoader loader,Class cass, Button btn, String fxml)throws IOException {
+    public static void change_scene(FXMLLoader loader, Class cass, Button btn, String fxml)throws IOException {
         Scene scene = new Scene(loader.load());
         Stage a = (Stage) btn.getScene().getWindow();
         a.setScene(scene);
     }
 
-    static FXMLLoader getLoader(Class cass,String fxml){
+    public static FXMLLoader getLoader(Class cass, String fxml){
         FXMLLoader loader = new FXMLLoader(cass.getResource(fxml));
         return loader;
     }

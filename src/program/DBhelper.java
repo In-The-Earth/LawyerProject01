@@ -166,4 +166,19 @@ public class DBhelper {
         }
     }
 
+    static public void update_Status(int id ,String status){
+        String sql = "UPDATE Schedule SET Status = ? WHERE ID = ?";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1,status);
+            pstmt.setInt(2,id);
+            pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
 }
