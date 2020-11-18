@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.ClientScheduleDetailController">
+   <children>
+      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="32.0" prefWidth="67.0" text="Back" />
+      <Label fx:id="cid_txt" layoutX="246.0" layoutY="75.0" prefHeight="32.0" prefWidth="184.0" text="client_id">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="cn_txt" layoutX="246.0" layoutY="107.0" prefHeight="32.0" prefWidth="184.0" text="client_name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="ct_txt" layoutX="246.0" layoutY="139.0" prefHeight="32.0" prefWidth="184.0" text="client_tel">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="cic_txt" layoutX="246.0" layoutY="171.0" prefHeight="32.0" prefWidth="184.0" text="client_Id_Card">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="ca_txt" layoutX="246.0" layoutY="203.0" prefHeight="32.0" prefWidth="184.0" text="client_age">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="276.0" prefHeight="32.0" prefWidth="184.0" text="Description">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="day_txt" layoutX="560.0" layoutY="75.0" prefHeight="32.0" prefWidth="184.0" text="day">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="time_txt" layoutX="560.0" layoutY="107.0" prefHeight="32.0" prefWidth="184.0" text="time">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="78.0" text="ID">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="110.0" text="Name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="142.0" text="Phone Number">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="174.0" text="ID Number">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="206.0" text="Age">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="232.0" layoutY="77.0" orientation="VERTICAL" prefHeight="157.0" prefWidth="6.0" />
+      <Label layoutX="105.0" layoutY="33.0" text="Case Detail">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="78.0" text="Date">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="110.0" text="Time">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="534.0" layoutY="81.0" orientation="VERTICAL" prefHeight="177.0" prefWidth="6.0" />
+      <Label layoutX="446.0" layoutY="143.0" text="Case Type">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="206.0" text="Lawyer">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="case_txt" layoutX="560.0" layoutY="143.0" text="case">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lawyer_txt" layoutX="561.0" layoutY="205.0" text="lawyer">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="des_txt" alignment="TOP_LEFT" layoutX="110.0" layoutY="325.0" prefHeight="185.0" prefWidth="535.0" text="description">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancel_btn" layoutX="598.0" layoutY="534.0" mnemonicParsing="false" onAction="#handleGoCancel_btnOnAction" prefHeight="36.0" prefWidth="146.0" text="Cancel" />
+      <Label layoutX="448.0" layoutY="238.0" text="Status">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="status_txt" layoutX="560.0" layoutY="237.0" text="status">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="174.0" text="Do what">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="dw_txt" layoutX="561.0" layoutY="174.0" text="do what">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

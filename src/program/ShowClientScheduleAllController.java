@@ -56,11 +56,11 @@ public class ShowClientScheduleAllController {
                 lawyerArrayList = DBhelper.read_Lawyer();
                 for(Schedule u : userSchedules){
                     for(Lawyer v : lawyerArrayList){
-                        System.out.println(u.getLawyer_id());
-                        System.out.println(v.getId());
-                        System.out.println(v.getName());
+//                        System.out.println(u.getLawyer_id());
+//                        System.out.println(v.getId());
+//                        System.out.println(v.getName());
                         if(u.getLawyer_id() == v.getId()){
-                            userSchedules02.add(new Schedule(u.getType_case(),u.getStatus(),u.getType_where(),u.getTime(),u.getDay(),v.getName()));
+                            userSchedules02.add(new Schedule(u.getType_case(),u.getStatus(),u.getType_where(),u.getTime_toString(),u.getDay(),v.getName()));
                         }
                     }
                 }
@@ -78,6 +78,7 @@ public class ShowClientScheduleAllController {
         });
     }
 
+
     public void setUserSchedules(ArrayList<Schedule> userSchedules) {
         this.userSchedules = userSchedules;
     }
@@ -93,4 +94,6 @@ public class ShowClientScheduleAllController {
         ClientScheduleController c = loader.getController();
         c.setUsername(username);
     }
+
+
 }

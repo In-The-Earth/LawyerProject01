@@ -181,4 +181,18 @@ public class DBhelper {
         }
     }
 
+    static public void delete_Schedule(int id ){
+        String sql = "DELETE FROM Schedule WHERE ID = ?";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1,id);
+            pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
 }

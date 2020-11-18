@@ -182,23 +182,20 @@ public class ClientScheduleController {
 
     @FXML
     public void handleGoShow_btnOnAction(ActionEvent event) throws IOException {
+        if(date_pick.getValue() == null){
+            return;
+        }
         LocalDate date = date_pick.getValue();
         showSchedule(date);
     }
 
-    @FXML
-    public void handleGoF15_btnOnAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = Main.getLoader(getClass(),"enter_book.fxml");
-        Main.change_scene(loader,getClass(),f15,"enter_book.fxml");
-
-    }
 
     @FXML
     public void handleSelectOnAction(ActionEvent event) throws IOException {
         Button b = (Button)event.getSource();
         if(b.getText().equals("-Free-")){
             FXMLLoader loader = Main.getLoader(getClass(),"enter_book.fxml");
-            Main.change_scene(loader,getClass(),f15,"enter_book.fxml");
+            Main.change_scene(loader,getClass(),b,"enter_book.fxml");
             EnterBookController c = loader.getController();
             c.setClient(client);
             c.setTime(b.getId());
@@ -214,8 +211,23 @@ public class ClientScheduleController {
                 c.setDay(d4.getText());
             }
         }
-        else if(b.getText().equals("Booked")){
-            return;
+        else{
+            FXMLLoader loader = Main.getLoader(getClass(),"clientScheduleDetailPage.fxml");
+            Main.change_scene(loader,getClass(),b,"clientScheduleDetailPage.fxml");
+            ClientScheduleDetailController c = loader.getController();
+            c.setClient(client);
+            c.setTime(b.getId());
+            if(b.getId().charAt(0) == 'm'){
+                c.setDay(d1.getText());
+            }else if(b.getId().charAt(0) == 'w'){
+                c.setDay(d3.getText());
+            }else if(b.getId().charAt(0) == 'f'){
+                c.setDay(d5.getText());
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'u'){
+                c.setDay(d2.getText());
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'h'){
+                c.setDay(d4.getText());
+            }
         }
     }
 }

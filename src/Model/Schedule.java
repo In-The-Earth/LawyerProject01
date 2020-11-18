@@ -127,4 +127,159 @@ public class Schedule {
     public Button getDetail() {
         return detail;
     }
+
+    public String getTime_toString(){
+        String result = "";
+        if(time.charAt(0) == 'm') {
+//            result = result + "monday ";
+//            System.out.println("check1");
+//            for(int i = 8; i <= 15; i++){
+//                String j =  Integer.toString(i);
+//                String h = String.valueOf(time.charAt(1));
+//                if (h.equals(j)){
+//                    System.out.println("true");
+//                    result = result + i + ".00-" + (i+1) +".00";
+//                }
+//            }
+            if (time.charAt(1) == '8') {
+                return "monday 8.00-9.00";
+            } else if (time.charAt(1) == '9') {
+                return "monday 9.00-10.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '0') {
+                return "monday 10.00-11.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '1') {
+                return "monday 11.00-12.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '2') {
+                return "monday 12.00-13.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '3') {
+                return "monday 13.00-14.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '4') {
+                return "monday 14.00-15.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '5') {
+                return "monday 15.00-16.00";
+            }
+        }
+        else if(time.charAt(0) == 'w') {
+            if (time.charAt(1) == '8') {
+                return "wednesday 8.00-9.00";
+            } else if (time.charAt(1) == '9') {
+                return "wednesday 9.00-10.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '0') {
+                return "wednesday 10.00-11.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '1') {
+                return "wednesday 11.00-12.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '2') {
+                return "wednesday 12.00-13.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '3') {
+                return "wednesday 13.00-14.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '4') {
+                return "wednesday 14.00-15.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '5') {
+                return "wednesday 15.00-16.00";
+            }
+        }
+        else if(time.charAt(0) == 'f') {
+            if (time.charAt(1) == '8') {
+                return "friday 8.00-9.00";
+            } else if (time.charAt(1) == '9') {
+                return "friday 9.00-10.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '0') {
+                return "friday 10.00-11.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '1') {
+                return "friday 11.00-12.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '2') {
+                return "friday 12.00-13.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '3') {
+                return "friday 13.00-14.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '4') {
+                return "friday 14.00-15.00";
+            } else if (time.charAt(1) == '1' & time.charAt(2) == '5') {
+                return "friday 15.00-16.00";
+            }
+        }else if(time.charAt(0) == 't' & time.charAt(1) == 'u') {
+            if (time.charAt(2) == '8') {
+                return "tuesday 8.00-9.00";
+            } else if (time.charAt(2) == '9') {
+                return "tuesday 9.00-10.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '0') {
+                return "tuesday 10.00-11.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '1') {
+                return "tuesday 11.00-12.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '2') {
+                return "tuesday 12.00-13.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '3') {
+                return "tuesday 13.00-14.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '4') {
+                return "tuesday 14.00-15.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '5') {
+                return "tuesday 15.00-16.00";
+            }
+        }
+        else if(time.charAt(0) == 't' & time.charAt(1) == 'h') {
+            if (time.charAt(2) == '8') {
+                return "thursday 8.00-9.00";
+            } else if (time.charAt(2) == '9') {
+                return "thursday 9.00-10.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '0') {
+                return "thursday 10.00-11.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '1') {
+                return "thursday 11.00-12.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '2') {
+                return "thursday 12.00-13.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '3') {
+                return "thursday 13.00-14.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '4') {
+                return "thursday 14.00-15.00";
+            } else if (time.charAt(2) == '1' & time.charAt(3) == '5') {
+                return "thursday 15.00-16.00";
+            }
+        }
+
+
+
+
+//        else if(time.charAt(0) == 'w') {
+//            result = result + "wednesday ";
+//            for(int i = 8; i <= 15; i++){
+//                String j =  Integer.toString(i);
+//                String h = String.valueOf(time.charAt(1));
+//                if (h.equals(j)){
+//                    System.out.println("true");
+//                    result = result + i + ".00-" + (i+1) +".00";
+//                }
+//            }
+//        }else if(time.charAt(0) == 'f') {
+//            result = result + "friday ";
+//            for(int i = 8; i <= 15; i++){
+//                String j =  Integer.toString(i);
+//                String h = String.valueOf(time.charAt(1));
+//                if (h.equals(j)){
+//                    System.out.println("true");
+//                    result = result + i + ".00-" + (i+1) +".00";
+//                }
+//            }
+//        }else if(time.charAt(0) == 't' & time.charAt(1) == 'u') {
+//            result = result + "tuesday ";
+//            for(int i = 8; i <= 15; i++){
+//                String j =  Integer.toString(i);
+//                String h = String.valueOf(time.charAt(2));
+//                if (h.equals(j)){
+//                    System.out.println("true");
+//                    result = result + i + ".00-" + (i+1) +".00";
+//                }
+//            }
+//        }
+//        else if(time.charAt(0) == 't' & time.charAt(1) == 'h') {
+//            result = result + "thursday ";
+//            for(int i = 8; i <= 15; i++){
+//                String j =  Integer.toString(i);
+//                String h = String.valueOf(time.charAt(2));
+//                if (h.equals(j)){
+//                    System.out.println("true");
+//                    result = result + i + ".00-" + (i+1) +".00";
+//                }
+//            }
+//        }
+        return result;
+    }
 }
