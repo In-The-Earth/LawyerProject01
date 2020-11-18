@@ -43,6 +43,7 @@ public class LawyerScheduleRequestDetailController {
                 scheduleArrayList = DBhelper.read_Schedule();
                 System.out.println(time);
                 System.out.println(day);
+                System.out.println(username);
 //                for(Lawyer l : lawyerArrayList){
 //                    if(l.getUsername().equals(username)){
 //                        userArrayList.ad
@@ -51,6 +52,8 @@ public class LawyerScheduleRequestDetailController {
                 for(Schedule u : scheduleArrayList){
                     for(Lawyer l : lawyerArrayList){
                         if(l.getUsername().equals(username)){
+                            System.out.println(u.getTime());
+                            System.out.println(time);
                             if(u.getTime().equals(time)){
                                 if(u.getDay().equals(day)){
                                     id_schedule = u.getId();
@@ -59,8 +62,7 @@ public class LawyerScheduleRequestDetailController {
                         }
                     }
                 }
-
-                System.out.println(client.getUsername());
+                System.out.println(id_schedule);
                 cid_txt.setText(Integer.toString(client.getId()));
                 cn_txt.setText(client.getName());
                 ct_txt.setText(client.getTel());

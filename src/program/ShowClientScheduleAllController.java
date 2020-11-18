@@ -60,7 +60,7 @@ public class ShowClientScheduleAllController {
 //                        System.out.println(v.getId());
 //                        System.out.println(v.getName());
                         if(u.getLawyer_id() == v.getId()){
-                            userSchedules02.add(new Schedule(u.getType_case(),u.getStatus(),u.getType_where(),u.getTime_toString(),u.getDay(),v.getName()));
+                            userSchedules02.add(new Schedule(u.getType_case(),u.getStatus(),u.getType_where(),u.getDT_toString(),u.getDay(),v.getName()));
                         }
                     }
                 }

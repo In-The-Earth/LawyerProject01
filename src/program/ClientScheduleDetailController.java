@@ -68,7 +68,7 @@ public class ClientScheduleDetailController {
                 int age = Period.between(LocalDate.parse(client.getBirth_date()),LocalDate.now()).getYears();
                 ca_txt.setText(Integer.toString(age));
                 day_txt.setText(day);
-                time_txt.setText(schedule.getTime_toString());
+                time_txt.setText(schedule.getDT_toString());
                 case_txt.setText(schedule.getType_case());
                 dw_txt.setText(schedule.getType_where());
                 lawyer_txt.setText(lawyer_name);

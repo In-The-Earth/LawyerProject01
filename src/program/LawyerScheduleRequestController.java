@@ -75,7 +75,7 @@ public class LawyerScheduleRequestController {
                     for(Client v : clientArrayList){
                         if(u.getClient_id() == v.getId()){
                             if(u.getStatus().equals("Request")) {
-                                userSchedules02.add(new Schedule(u.getType_case(), u.getType_where(), u.getTime_toString(), u.getDay(), v.getName(),
+                                userSchedules02.add(new Schedule(u.getType_case(), u.getType_where(), u.getTime(), u.getDay(), v.getName(),
                                         new Client(u.getId(), v.getUsername(), v.getPassword(), v.getName(), v.getEmail(), v.getId_card(), v.getTel(), v.getBirth_date()), username));
                             }
                         }

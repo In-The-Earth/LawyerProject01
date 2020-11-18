@@ -26,6 +26,7 @@ public class Schedule {
     private String client_name;
     private Client client;
     private Button detail;
+    private String time_toString;
 
     public Schedule(int id, int client_id, int lawyer_id, String type_case, String status, String type_where, String time, String day, String id_sup, String des) {
         this.id = id;
@@ -56,6 +57,8 @@ public class Schedule {
         this.day = day;
         this.client_name = client_name;
         this.lawyer_username = lawyer_username;
+        this.time_toString = getDT_toString();
+        System.out.println(getDT_toString());
         this.detail = new Button("Info");
         this.detail.setOnAction(event -> {
             try {
@@ -128,7 +131,7 @@ public class Schedule {
         return detail;
     }
 
-    public String getTime_toString(){
+    public String getDT_toString(){
         String result = "";
         if(time.charAt(0) == 'm') {
 //            result = result + "monday ";
