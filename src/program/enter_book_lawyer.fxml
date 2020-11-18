@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.EnterBookLawyerController">
+   <children>
+      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="32.0" prefWidth="67.0" text="Back" />
+      <ComboBox fx:id="tch_cb" layoutX="458.0" layoutY="177.0" prefHeight="32.0" prefWidth="184.0" promptText="Case Type" />
+      <ComboBox fx:id="cch_cb" layoutX="457.0" layoutY="221.0" prefHeight="32.0" prefWidth="184.0" promptText="Choose Client" />
+      <TextArea fx:id="des_txt" layoutX="108.0" layoutY="309.0" prefHeight="203.0" prefWidth="550.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="117.0" layoutY="273.0" prefHeight="32.0" prefWidth="184.0" text="Description">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="submit_btn" layoutX="591.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleGoSubmit_btnOnAction" prefHeight="26.0" prefWidth="67.0" text="Submit" />
+      <ComboBox fx:id="do_cb" layoutX="458.0" layoutY="135.0" prefHeight="32.0" prefWidth="184.0" promptText="do what" />
+      <Label layoutX="117.0" layoutY="28.0" text="Case Detail">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="day_txt" layoutX="569.0" layoutY="64.0" prefHeight="32.0" prefWidth="184.0" text="day">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="time_txt" layoutX="569.0" layoutY="96.0" prefHeight="32.0" prefWidth="184.0" text="time">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="457.0" layoutY="67.0" text="Date">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="457.0" layoutY="99.0" text="Time">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="534.0" layoutY="70.0" orientation="VERTICAL" prefHeight="55.0" prefWidth="6.0" />
+      <Label fx:id="lid_txt" layoutX="256.0" layoutY="85.0" prefHeight="32.0" prefWidth="184.0" text="lawyer_id">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="ln_txt" layoutX="256.0" layoutY="117.0" prefHeight="32.0" prefWidth="184.0" text="lawyer_name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lt_txt" layoutX="256.0" layoutY="149.0" prefHeight="32.0" prefWidth="184.0" text="lawyer_tel">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="88.0" text="ID">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="120.0" text="Name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="152.0" text="Phone Number">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="242.0" layoutY="87.0" orientation="VERTICAL" prefHeight="95.0" prefWidth="6.0" />
+      <Label fx:id="w1" layoutX="650.0" layoutY="185.0" prefHeight="17.0" prefWidth="136.0" text="w1" textFill="RED" />
+      <Label fx:id="w2" layoutX="650.0" layoutY="229.0" prefHeight="17.0" prefWidth="136.0" text="w2" textFill="RED" />
+      <Label fx:id="w3" layoutX="650.0" layoutY="144.0" prefHeight="17.0" prefWidth="136.0" text="w3" textFill="RED" />
+   </children>
+</AnchorPane>

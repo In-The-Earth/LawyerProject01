@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="program.ShowLawyerScheduleController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.ShowLawyerScheduleController">
+   <children>
+      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="32.0" prefWidth="67.0" text="Back" />
+      <TableView fx:id="table" layoutX="38.0" layoutY="55.0" prefHeight="517.0" prefWidth="734.0">
+        <columns>
+          <TableColumn fx:id="day_c" prefWidth="92.0" text="day" />
+          <TableColumn fx:id="time_c" prefWidth="179.0" text="time" />
+            <TableColumn fx:id="tc_c" prefWidth="103.0" text="typecase" />
+            <TableColumn fx:id="do_c" prefWidth="116.0" text="do what" />
+            <TableColumn fx:id="cli_c" prefWidth="243.0" text="client" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ package Model;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import program.DBhelper;
 import program.LawyerScheduleRequestController;
 import program.LawyerScheduleRequestDetailController;
 import program.Main;
@@ -26,6 +27,7 @@ public class Schedule {
     private String client_name;
     private Client client;
     private Button detail;
+    private Button delete_lawyer;
     private String time_toString;
 
     public Schedule(int id, int client_id, int lawyer_id, String type_case, String status, String type_where, String time, String day, String id_sup, String des) {
@@ -50,7 +52,29 @@ public class Schedule {
         this.lawyer_name = lawyer_name;
     }
 
-    public Schedule(String type_case, String type_where, String time, String day, String client_name,Client client,String lawyer_username) {
+    public Schedule(int id,int lawyer_id, String lawyer_name,String id_sup) {
+        this.id = id;
+        this.lawyer_id = lawyer_id;
+        this.lawyer_name = lawyer_name;
+        this.id_sup = id_sup;
+        this.delete_lawyer = new Button("delete");
+        this.delete_lawyer.setOnAction(event -> {
+            String[] ids = id_sup.split(":");
+            String result = "";
+            for(String u : ids){
+                if(!u.equals(lawyer_id)){
+                    if(result == ""){
+                        result += u;
+                    }else {
+                        result += ":" + u;
+                    }
+                }
+            }
+            DBhelper.update_ID_sup(id,result);
+        });
+    }
+
+    public Schedule(String type_case, String type_where, String time, String day, String client_name, Client client, String lawyer_username) {
         this.type_case = type_case;
         this.type_where = type_where;
         this.time = time;
@@ -75,9 +99,6 @@ public class Schedule {
         });
     }
 
-//    public void info_btn(){
-//        FXMLLoader loader = Main.ge
-//    }
 
     public String getClient_name() {
         return client_name;
@@ -129,6 +150,14 @@ public class Schedule {
 
     public Button getDetail() {
         return detail;
+    }
+
+    public Button getDelete_lawyer() {
+        return delete_lawyer;
+    }
+
+    public String getTime_toString() {
+        return time_toString;
     }
 
     public String getDT_toString(){

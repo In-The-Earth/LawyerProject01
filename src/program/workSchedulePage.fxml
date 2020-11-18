@@ -16,10 +16,13 @@
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
             <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoLogout_btnOnAction" text="Logout" />
-            <Button layoutX="638.0" layoutY="41.0" mnemonicParsing="false" text="Add" />
-            <Button layoutX="708.0" layoutY="41.0" mnemonicParsing="false" text="edit" />
-            <Button fx:id="request_btn" layoutX="566.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleGoRequestLawyerPage_btnOnAction" text="Request" />
-            <Button fx:id="sAll_btn" layoutX="566.0" layoutY="81.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="181.0" text="นัดของคุณทั้งหมด" />
+            <Button fx:id="request_btn" layoutX="566.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleGoRequestLawyerPage_btnOnAction" prefHeight="44.0" prefWidth="143.0" text="Request" />
+            <Button fx:id="sAll_btn" layoutX="566.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleGoSAll_btnOnAction" prefHeight="44.0" prefWidth="181.0" text="นัดของคุณทั้งหมด" />
+            <Label fx:id="c" layoutX="663.0" layoutY="24.0" text="c" textFill="RED">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <GridPane layoutX="-2.0" layoutY="237.0" prefHeight="342.0" prefWidth="800.0">

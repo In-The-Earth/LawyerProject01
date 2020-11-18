@@ -181,6 +181,21 @@ public class DBhelper {
         }
     }
 
+    static public void update_ID_sup(int id ,String id_sup){
+        String sql = "UPDATE Schedule SET ID_sup = ? WHERE ID = ?";
+        Connection connection = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1,id_sup);
+            pstmt.setInt(2,id);
+            pstmt.executeUpdate();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
     static public void delete_Schedule(int id ){
         String sql = "DELETE FROM Schedule WHERE ID = ?";
         Connection connection = null;

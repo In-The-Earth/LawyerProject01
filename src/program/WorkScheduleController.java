@@ -25,13 +25,14 @@ public class WorkScheduleController {
     @FXML
     private DatePicker date_pick;
     @FXML
-    private Label d1,d2,d3,d4,d5,user_txt;
+    private Label d1,d2,d3,d4,d5,user_txt,c;
 
     private String username;
     private Lawyer lawyer;
     private ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
     private ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
     private ArrayList<Schedule> userSchedules = new ArrayList<>();
+    private ArrayList<Schedule> userScheduleRequest = new ArrayList<>();
 
     public void initialize(){
         Platform.runLater(new Runnable() {
@@ -51,6 +52,12 @@ public class WorkScheduleController {
                         userSchedules.add(v);
                     }
                 }
+                for(Schedule u : userSchedules){
+                    if(u.getStatus().equals("Request")){
+                        userScheduleRequest.add(u);
+                    }
+                }
+                c.setText(Integer.toString(userScheduleRequest.size()));
                 showSchedule(LocalDate.now());
 
             }
@@ -86,12 +93,18 @@ public class WorkScheduleController {
                     for (int i = 0; i < 40; i++) {
                         if (u.getTime().equals(btns[i].getId())) {
                             if (u.getStatus().equals("Accepted")) {
-//                                System.out.println("successBtn01");
-                                btns[i].setStyle("-fx-background-color: #42d4f5");
-                                btns[i].setText("-Booked-\nAccept");
+                                if(u.getType_where().equals("Go to court")){
+                                    btns[i].setStyle("-fx-background-color: #334ab0");
+                                    btns[i].setText("-Booked-\nGo to court");
+                                }else {
+                                    btns[i].setStyle("-fx-background-color: #42d4f5");
+                                    btns[i].setText("-Booked-\nAccept");
+                                }
                             }
                         } else {
                             if (btns[i].getText().equals("-Booked-\nAccept")) {
+                                continue;
+                            }else if(btns[i].getText().equals("-Booked-\nGo to court")){
                                 continue;
                             } else {
                                 btns[i].setText("-Free-");
@@ -149,11 +162,11 @@ public class WorkScheduleController {
 
     @FXML
     public void handleGoSAll_btnOnAction(ActionEvent event) throws IOException {
-//        FXMLLoader loader = Main.getLoader(getClass(),"showClientScheduleAllPage.fxml");
-//        Main.change_scene(loader,getClass(),back_btn,"showClientScheduleAllPage.fxml");
-//        ShowClientScheduleAllController c = loader.getController();
-//        c.setUserSchedules(userSchedules);
-//        c.setUsername(username);
+        FXMLLoader loader = Main.getLoader(getClass(),"showLawyerSchedulePage.fxml");
+        Main.change_scene(loader,getClass(),sAll_btn,"showLawyerSchedulePage.fxml");
+        ShowLawyerScheduleController c = loader.getController();
+        c.setUserSchedules(userSchedules);
+        c.setUsername(username);
     }
 
     @FXML
@@ -167,27 +180,42 @@ public class WorkScheduleController {
 
     @FXML
     public void handleSelectOnAction(ActionEvent event) throws IOException {
-//        Button b = (Button)event.getSource();
-//        if(b.getText().equals("-Free-")){
-//            FXMLLoader loader = Main.getLoader(getClass(),"enter_book.fxml");
-//            Main.change_scene(loader,getClass(),f15,"enter_book.fxml");
-//            EnterBookController c = loader.getController();
-//            c.setClient(client);
-//            c.setTime(b.getId());
-//            if(b.getId().charAt(0) == 'm'){
-//                c.setDay(d1.getText());
-//            }else if(b.getId().charAt(0) == 'w'){
-//                c.setDay(d3.getText());
-//            }else if(b.getId().charAt(0) == 'f'){
-//                c.setDay(d5.getText());
-//            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'u'){
-//                c.setDay(d2.getText());
-//            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'h'){
-//                c.setDay(d4.getText());
-//            }
-//        }
-//        else if(b.getText().equals("Booked")){
-//            return;
-//        }
+        Button b = (Button)event.getSource();
+        if(b.getText().equals("-Free-")){
+            FXMLLoader loader = Main.getLoader(getClass(),"enter_book_lawyer.fxml");
+            Main.change_scene(loader,getClass(),b,"enter_book_lawyer.fxml");
+            EnterBookLawyerController c = loader.getController();
+            c.setLawyer(lawyer);
+            c.setTime(b.getId());
+            if(b.getId().charAt(0) == 'm'){
+                c.setDay(d1.getText());
+            }else if(b.getId().charAt(0) == 'w'){
+                c.setDay(d3.getText());
+            }else if(b.getId().charAt(0) == 'f'){
+                c.setDay(d5.getText());
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'u'){
+                c.setDay(d2.getText());
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'h'){
+                c.setDay(d4.getText());
+            }
+        }
+        else{
+            FXMLLoader loader = Main.getLoader(getClass(),"lawyerScheduleDetail.fxml");
+            Main.change_scene(loader,getClass(),b,"lawyerScheduleDetail.fxml");
+            LawyerScheduleDetailController c = loader.getController();
+            c.setUsername(username);
+            c.setTime(b.getId());
+            if(b.getId().charAt(0) == 'm'){
+                c.setDay(d1.getText());
+            }else if(b.getId().charAt(0) == 'w'){
+                c.setDay(d3.getText());
+            }else if(b.getId().charAt(0) == 'f'){
+                c.setDay(d5.getText());
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'u'){
+                c.setDay(d2.getText());
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'h'){
+                c.setDay(d4.getText());
+            }
+        }
     }
 }

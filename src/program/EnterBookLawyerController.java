@@ -17,20 +17,23 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 
-public class EnterBookController {
-    private Client client;
+public class EnterBookLawyerController {
+    private Lawyer lawyer;
     private String time;
     private String day;
     private ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
+    private ArrayList<Client> clientArrayList = new ArrayList<>();
     private ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
     @FXML
     private Button back_btn,submit_btn;
     @FXML
-    private Label cid_txt,cn_txt,ct_txt,cic_txt,ca_txt,day_txt,time_txt,w1,w2;
+    private Label lid_txt,ln_txt,lt_txt,day_txt,time_txt,w1,w2,w3;
     @FXML
     private ComboBox<String> tch_cb;
     @FXML
-    private ComboBox<String> lch_cb;
+    private ComboBox<String> cch_cb;
+    @FXML
+    private ComboBox<String> do_cb;
     @FXML
     private TextArea des_txt;
 
@@ -40,32 +43,26 @@ public class EnterBookController {
             public void run() {
                 lawyerArrayList = DBhelper.read_Lawyer();
                 scheduleArrayList = DBhelper.read_Schedule();
-                System.out.println(client.getUsername());
+                clientArrayList = DBhelper.read_Client();
+                System.out.println(lawyer.getUsername());
                 w1.setText("");
                 w2.setText("");
-                cid_txt.setText(Integer.toString(client.getId()));
-                cn_txt.setText(client.getName());
-                ct_txt.setText(client.getTel());
-                cic_txt.setText(client.getId_card());
-                int age = Period.between(LocalDate.parse(client.getBirth_date()),LocalDate.now()).getYears();
-                ca_txt.setText(Integer.toString(age));
+                w3.setText("");
+                lid_txt.setText(Integer.toString(lawyer.getId()));
+                ln_txt.setText(lawyer.getName());
+                lt_txt.setText(lawyer.getTel());
                 day_txt.setText(day);
                 time_txt.setText(getTime_toString());
                 tch_cb.getItems().addAll("แพ่ง");
                 tch_cb.getItems().addAll("อาญา");
-                for(String u : getLawyers()){
-                    lch_cb.getItems().addAll(u);
+                do_cb.getItems().addAll("Talk");
+                do_cb.getItems().addAll("Go to court");
+                System.out.println(getClients());
+                for(String u : getClients()){
+                    cch_cb.getItems().addAll(u);
                 }
             }
         });
-    }
-
-    public ArrayList<String> getLawyers(){
-        ArrayList<String> lawyers = new ArrayList<>();
-        for(Lawyer u : lawyerArrayList){
-            lawyers.add(u.getId() +": "+ u.getName());
-        }
-        return lawyers;
     }
 
     public void setDay(String day) {
@@ -76,66 +73,69 @@ public class EnterBookController {
         this.time = time;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setLawyer(Lawyer lawyer) {
+        this.lawyer = lawyer;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    @FXML
-    public void handleGoBack_btnOnAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = Main.getLoader(getClass(),"clientSchedulePage.fxml");
-        Main.change_scene(loader,getClass(),back_btn,"clientSchedulePage.fxml");
-        ClientScheduleController c = loader.getController();
-        c.setUsername(client.getUsername());
-
+    public ArrayList<String> getClients(){
+        ArrayList<String> clients = new ArrayList<>();
+        for(Client u : clientArrayList){
+            clients.add(u.getId() +": "+ u.getName());
+        }
+        return clients;
     }
 
     @FXML
     public void handleGoSubmit_btnOnAction(ActionEvent event) throws IOException {
         w1.setText("");
         w2.setText("");
+        w3.setText("");
         System.out.println(tch_cb.getValue());
-        System.out.println(lch_cb.getValue());
+        System.out.println(cch_cb.getValue());
+        if(do_cb.getValue() == null){
+            w3.setText("Choose One!");
+            return;
+        }
         if(tch_cb.getValue() == null){
             w1.setText("choose Type!");
             return;
         }
-        if(lch_cb.getValue() == null){
-            w2.setText("choose Lawyer!");
+        if(cch_cb.getValue() == null){
+            w2.setText("choose Client!");
             return;
         }
-        if(check_lawyer()){
-            w2.setText("This lawyer is busy \nin this selected time.");
+        if(check_client()){
+            w2.setText("This client is busy \nin this selected time.");
             return;
         }
-        String[] d = lch_cb.getValue().split(":");
-        int id_ly = Integer.parseInt(d[0].trim());
-        DBhelper.write_Schedule(client.getId(),id_ly,tch_cb.getValue(),"Request","Talk",time,day,"null",des_txt.getText());
+        String[] d = cch_cb.getValue().split(":");
+        int id_cl = Integer.parseInt(d[0].trim());
+        DBhelper.write_Schedule(id_cl,lawyer.getId(),tch_cb.getValue(),"Accepted",do_cb.getValue(),time,day,"null",des_txt.getText());
 
-        FXMLLoader loader = Main.getLoader(getClass(),"clientSchedulePage.fxml");
-        Main.change_scene(loader,getClass(),submit_btn,"clientSchedulePage.fxml");
-        ClientScheduleController c = loader.getController();
-        c.setUsername(client.getUsername());
+        FXMLLoader loader = Main.getLoader(getClass(),"workSchedulePage.fxml");
+        Main.change_scene(loader,getClass(),submit_btn,"workSchedulePage.fxml");
+        WorkScheduleController c = loader.getController();
+        c.setUsername(lawyer.getUsername());
     }
 
-    public boolean check_lawyer(){
+    @FXML
+    public void handleGoBack_btnOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = Main.getLoader(getClass(),"workSchedulePage.fxml");
+        Main.change_scene(loader,getClass(),back_btn,"workSchedulePage.fxml");
+        WorkScheduleController c = loader.getController();
+        c.setUsername(lawyer.getUsername());
+
+    }
+
+    public boolean check_client(){
         ArrayList<String> lawyers = new ArrayList<>();
-        String[] d = lch_cb.getValue().split(":");
+        String[] d = cch_cb.getValue().split(":");
         int id_ly = Integer.parseInt(d[0].trim());
         for(Schedule u : scheduleArrayList){
-            if(u.getLawyer_id() == id_ly) {
+            if(u.getClient_id() == id_ly) {
                 if (u.getDay().equals(day)) {
                     if (u.getTime().equals(time)) {
-                        if(u.getStatus().equals("Request") || u.getStatus().equals("Accepted")) {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }

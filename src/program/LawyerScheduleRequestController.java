@@ -84,7 +84,7 @@ public class LawyerScheduleRequestController {
                 ObservableList<Schedule> schedules = FXCollections.observableArrayList(userSchedules02);
 
                 day_c.setCellValueFactory(new PropertyValueFactory<>("day"));
-                time_c.setCellValueFactory(new PropertyValueFactory<>("time"));
+                time_c.setCellValueFactory(new PropertyValueFactory<>("time_toString"));
                 tc_c.setCellValueFactory(new PropertyValueFactory<>("type_case"));
                 do_c.setCellValueFactory(new PropertyValueFactory<>("type_where"));
                 cli_c.setCellValueFactory(new PropertyValueFactory<>("client_name"));

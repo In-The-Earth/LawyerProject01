@@ -93,8 +93,13 @@ public class ClientScheduleController {
                                 btns[i].setText("-Booked-\nRequest");
                             }
                             else if(u.getStatus().equals("Accepted")){
-                                btns[i].setStyle("-fx-background-color: Green");
-                                btns[i].setText("-Booked-\nAccept");
+                                if(u.getType_where().equals("Go to court")) {
+                                    btns[i].setStyle("-fx-background-color: #334ab0");
+                                    btns[i].setText("-Booked-\nGo to court");
+                                }else {
+                                    btns[i].setStyle("-fx-background-color: Green");
+                                    btns[i].setText("-Booked-\nAccept");
+                                }
                             }else if(u.getStatus().equals("Reject")){
                                 btns[i].setStyle("-fx-background-color: Red");
                                 btns[i].setText("-Booked-\nReject");
@@ -106,6 +111,8 @@ public class ClientScheduleController {
                             }else if(btns[i].getText().equals("-Booked-\nAccept")){
                                 continue;
                             }else if(btns[i].getText().equals("-Booked-\nReject")){
+                                continue;
+                            }else if(btns[i].getText().equals("-Booked-\nGo to court")){
                                 continue;
                             } else {
                                 btns[i].setText("-Free-");
