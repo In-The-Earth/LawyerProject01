@@ -27,7 +27,7 @@ public class Main extends Application {
     public Connection getConnection() throws Exception {
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             System.out.println("Connected");
             PreparedStatement create1 = connection.prepareStatement(
                     "CREATE TABLE IF NOT EXISTS 'Users' ('ID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'UserType' TEXT);");

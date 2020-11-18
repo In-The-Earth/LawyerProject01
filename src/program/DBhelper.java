@@ -15,7 +15,7 @@ public class DBhelper {
         String sql = "SELECT ID,Username,Password,UserType FROM Users";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
@@ -33,7 +33,7 @@ public class DBhelper {
         String sql = "SELECT ID,Username,Password,Name,Email,Tel,Date FROM Lawyer";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
@@ -52,7 +52,7 @@ public class DBhelper {
         String sql = "SELECT ID,Username,Password,Name,Email,Id_Card,Tel,Date FROM Client";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
@@ -71,7 +71,7 @@ public class DBhelper {
         String sql = "SELECT ID,Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup,Description FROM Schedule";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
@@ -89,7 +89,7 @@ public class DBhelper {
         String sql = "INSERT INTO Users(Username,Password,UserType) VALUES(?,?,?)";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,password);
@@ -106,7 +106,7 @@ public class DBhelper {
         String sql = "INSERT INTO Lawyer(Username,Password,Name,Email,Tel,Date) VALUES(?,?,?,?,?,?)";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,password);
@@ -126,7 +126,7 @@ public class DBhelper {
         String sql = "INSERT INTO Client(Username,Password,Name,Email,Id_Card,Tel,Date) VALUES(?,?,?,?,?,?,?)";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,username);
             preparedStatement.setString(2,password);
@@ -147,7 +147,7 @@ public class DBhelper {
         String sql = "INSERT INTO Schedule(Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup,Description) VALUES(?,?,?,?,?,?,?,?,?)";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, String.valueOf(client_id));
             preparedStatement.setString(2, String.valueOf(lawyer_id));
@@ -170,7 +170,7 @@ public class DBhelper {
         String sql = "UPDATE Schedule SET Status = ? WHERE ID = ?";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1,status);
             pstmt.setInt(2,id);
@@ -185,7 +185,7 @@ public class DBhelper {
         String sql = "UPDATE Schedule SET ID_sup = ? WHERE ID = ?";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1,id_sup);
             pstmt.setInt(2,id);
@@ -200,7 +200,7 @@ public class DBhelper {
         String sql = "DELETE FROM Schedule WHERE ID = ?";
         Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1,id);
             pstmt.executeUpdate();
