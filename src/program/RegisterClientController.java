@@ -21,7 +21,7 @@ public class RegisterClientController {
     @FXML
     private DatePicker date_pick;
     @FXML
-    private Label ut_txt,pi_txt,ci_txt,w1,w2,w3,w4;
+    private Label ut_txt,pi_txt,ci_txt,w1,w2,w3,w4,w5;
 
     private ArrayList<Users> usersArrayList = new ArrayList<>();
 
@@ -31,6 +31,7 @@ public class RegisterClientController {
         w2.setText("");
         w3.setText("");
         w4.setText("");
+        w5.setText("");
     }
 
     @FXML
@@ -46,6 +47,7 @@ public class RegisterClientController {
         w2.setText("");
         w3.setText("");
         w4.setText("");
+        w5.setText("");
         ci_txt.setText("");
         if(checkText_field()){
             ci_txt.setText("Complete Information!!");
@@ -81,6 +83,10 @@ public class RegisterClientController {
                     w4.setText("Invalid date!");
                     c = false;
                 }
+                if(!check_name()){
+                    w5.setText("Invalid name!");
+                    c = false;
+                }
                 if(c == false){
                     return;
                 }
@@ -110,6 +116,15 @@ public class RegisterClientController {
     public boolean check_email(){
         for(int i=0 ; i<email_text.getText().length();i++){
             if(email_text.getText().charAt(i) == '@'){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean check_name(){
+        for(int i =0; i < name_text.getText().length() ; i++ ){
+            if(Character.isDigit(name_text.getText().charAt(i))){
                 return false;
             }
         }

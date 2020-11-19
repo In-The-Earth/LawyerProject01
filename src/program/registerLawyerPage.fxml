@@ -45,6 +45,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Label fx:id="w5" layoutX="463.0" layoutY="69.0" prefHeight="21.0" prefWidth="169.0" text="w5" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="137.0" layoutY="37.0" prefHeight="192.0" prefWidth="527.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #1E385B;">

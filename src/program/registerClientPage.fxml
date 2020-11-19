@@ -59,6 +59,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Label fx:id="w5" layoutX="462.0" layoutY="56.0" prefHeight="21.0" prefWidth="169.0" text="w5" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <TextField fx:id="name_text" layoutX="268.0" layoutY="287.0" prefHeight="35.0" prefWidth="322.0" style="-fx-background-color: #122643; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-inner-color: white;">
