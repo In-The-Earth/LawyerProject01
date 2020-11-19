@@ -3,105 +3,141 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.EnterBookController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #122643;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.EnterBookController">
    <children>
-      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="32.0" prefWidth="67.0" text="Back" />
-      <Button fx:id="submit_btn" layoutX="567.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleGoSubmit_btnOnAction" prefHeight="26.0" prefWidth="67.0" text="Submit" />
-      <Label fx:id="cid_txt" layoutX="246.0" layoutY="75.0" prefHeight="32.0" prefWidth="184.0" text="client_id">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="cn_txt" layoutX="246.0" layoutY="107.0" prefHeight="32.0" prefWidth="184.0" text="client_name">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="ct_txt" layoutX="246.0" layoutY="139.0" prefHeight="32.0" prefWidth="184.0" text="client_tel">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="cic_txt" layoutX="246.0" layoutY="171.0" prefHeight="32.0" prefWidth="184.0" text="client_Id_Card">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="ca_txt" layoutX="246.0" layoutY="203.0" prefHeight="32.0" prefWidth="184.0" text="client_age">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="tch_cb" layoutX="448.0" layoutY="148.0" prefHeight="32.0" prefWidth="184.0" promptText="Case Type" />
-      <ComboBox fx:id="lch_cb" layoutX="448.0" layoutY="193.0" prefHeight="32.0" prefWidth="184.0" promptText="Choose Lawyer" />
-      <TextArea fx:id="des_txt" layoutX="107.0" layoutY="300.0" prefHeight="203.0" prefWidth="527.0">
+      <Pane layoutX="92.0" layoutY="328.0" prefHeight="235.0" prefWidth="616.0" style="-fx-background-color: #1E385B; -fx-background-radius: 15; -fx-border-radius: 15;" />
+      <TextArea fx:id="des_txt" layoutX="111.0" layoutY="344.0" prefHeight="203.0" prefWidth="574.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextArea>
-      <Label layoutX="107.0" layoutY="263.0" prefHeight="32.0" prefWidth="184.0" text="Description">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="day_txt" layoutX="560.0" layoutY="75.0" prefHeight="32.0" prefWidth="184.0" text="day">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="time_txt" layoutX="560.0" layoutY="107.0" prefHeight="32.0" prefWidth="184.0" text="time">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="w1" layoutX="638.0" layoutY="156.0" prefHeight="17.0" prefWidth="136.0" text="w1" textFill="RED" />
-      <Label fx:id="w2" layoutX="638.0" layoutY="198.0" prefHeight="17.0" prefWidth="136.0" text="w2" textFill="RED" />
-      <Label layoutX="107.0" layoutY="78.0" text="ID">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="107.0" layoutY="110.0" text="Name">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="107.0" layoutY="142.0" text="Phone Number">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="107.0" layoutY="174.0" text="ID Number">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="107.0" layoutY="206.0" text="Age">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Separator layoutX="232.0" layoutY="77.0" orientation="VERTICAL" prefHeight="157.0" prefWidth="6.0" />
-      <Label layoutX="105.0" layoutY="33.0" text="Case Detail">
+      <Pane layoutX="246.0" layoutY="55.0" prefHeight="52.0" prefWidth="396.0" style="-fx-background-color: #8FC1E2; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <Label fx:id="day_txt" layoutX="63.0" prefHeight="32.0" prefWidth="108.0" text="day" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="time_txt" layoutX="230.0" prefHeight="32.0" prefWidth="138.0" text="time" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="180.0" layoutY="3.0" text="Time" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="3.0" text="Date" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="92.0" layoutY="85.0" prefHeight="200.0" prefWidth="616.0" style="-fx-background-color: #1E385B; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <Pane layoutX="151.0" layoutY="55.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
+            <Pane layoutX="151.0" layoutY="87.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
+            <Pane layoutX="151.0" layoutY="119.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
+            <Pane layoutX="151.0" layoutY="151.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
+            <Pane layoutX="151.0" layoutY="23.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
+            <Label fx:id="cid_txt" layoutX="157.0" layoutY="20.0" prefHeight="32.0" prefWidth="176.0" text="client_id" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="cn_txt" layoutX="157.0" layoutY="52.0" prefHeight="32.0" prefWidth="176.0" text="client_name" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="ct_txt" layoutX="157.0" layoutY="84.0" prefHeight="32.0" prefWidth="176.0" text="client_tel" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="cic_txt" layoutX="157.0" layoutY="116.0" prefHeight="32.0" prefWidth="184.0" text="client_Id_Card" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="ca_txt" layoutX="157.0" layoutY="148.0" prefHeight="32.0" prefWidth="184.0" text="client_age" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="23.0" text="Client ID" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="55.0" text="Client Name" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="87.0" text="Phone Number" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="119.0" text="ID Number" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="151.0" text="Age" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="tch_cb" layoutX="335.0" layoutY="18.0" prefHeight="32.0" prefWidth="184.0" promptText="Case Type" />
+            <Label fx:id="w1" layoutX="528.0" layoutY="26.0" prefHeight="17.0" prefWidth="136.0" text="w1" textFill="RED" />
+            <ComboBox fx:id="lch_cb" layoutX="335.0" layoutY="65.0" prefHeight="32.0" prefWidth="184.0" promptText="Choose Lawyer" />
+            <Label fx:id="w2" layoutX="528.0" layoutY="73.0" prefHeight="17.0" prefWidth="136.0" text="w2" textFill="RED" />
+         </children>
+      </Pane>
+      <Label layoutX="107.0" layoutY="49.0" text="Case Detail" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="448.0" layoutY="78.0" text="Date">
+      <Button fx:id="back_btn" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #00B0C6; -fx-background-radius: 30; -fx-border-radius: 30;" text="Back" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/left-arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
          <font>
-            <Font size="17.0" />
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="116.0" layoutY="295.0" prefHeight="32.0" prefWidth="115.0" text="Description" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="448.0" layoutY="110.0" text="Time">
+      <Button fx:id="submit_btn" layoutX="584.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleGoSubmit_btnOnAction" prefHeight="45.0" prefWidth="149.0" style="-fx-background-color: #4CAF50; -fx-background-radius: 30; -fx-border-radius: 30;" text="Submit" textFill="WHITE">
          <font>
-            <Font size="17.0" />
+            <Font size="15.0" />
          </font>
-      </Label>
-      <Separator layoutX="525.0" layoutY="81.0" orientation="VERTICAL" prefHeight="55.0" prefWidth="6.0" />
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/accept.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
