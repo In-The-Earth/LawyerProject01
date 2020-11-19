@@ -50,7 +50,7 @@
       <Pane layoutX="246.0" layoutY="105.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
       <Pane layoutX="246.0" layoutY="137.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
       <Pane layoutX="246.0" layoutY="169.0" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #122643; -fx-background-radius: 15; -fx-border-radius: 15;" />
-      <TextArea fx:id="des_txt" layoutX="112.0" layoutY="343.0" prefHeight="203.0" prefWidth="574.0">
+      <TextArea fx:id="des_txt" layoutX="112.0" layoutY="343.0" prefHeight="203.0" prefWidth="574.0" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>

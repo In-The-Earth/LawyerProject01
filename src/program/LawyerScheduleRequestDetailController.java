@@ -22,7 +22,9 @@ public class LawyerScheduleRequestDetailController {
     private Client client;
     private String time;
     private String day;
+    private String lawyer_name;
     private int id_schedule;
+    private Schedule schedule ;
     private ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
     private ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
     private ArrayList<Schedule> userArrayList = new ArrayList<>();
@@ -56,7 +58,9 @@ public class LawyerScheduleRequestDetailController {
                             System.out.println(time);
                             if(u.getTime().equals(time)){
                                 if(u.getDay().equals(day)){
+                                    lawyer_name = l.getName();
                                     id_schedule = u.getId();
+                                    schedule = new Schedule(u.getId(),u.getClient_id(),u.getLawyer_id(),u.getType_case(),u.getStatus(),u.getTime(),u.getTime(),u.getDay(),u.getId_sup(),u.getDes());
                                 }
                             }
                         }
@@ -67,10 +71,14 @@ public class LawyerScheduleRequestDetailController {
                 cn_txt.setText(client.getName());
                 ct_txt.setText(client.getTel());
                 cic_txt.setText(client.getId_card());
+                lawyer_txt.setText(lawyer_name);
                 int age = Period.between(LocalDate.parse(client.getBirth_date()),LocalDate.now()).getYears();
                 ca_txt.setText(Integer.toString(age));
                 day_txt.setText(day);
-                time_txt.setText(time);
+                time_txt.setText(schedule.getDT_toString());
+                case_txt.setText(schedule.getType_case());
+                des_txt.setText(schedule.getDes());
+                des_txt.setWrapText(true);
 
             }
         });

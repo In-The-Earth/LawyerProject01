@@ -61,6 +61,7 @@ public class ClientScheduleDetailController {
                     }
                 }
 
+                des_txt.setWrapText(true);
                 cid_txt.setText(Integer.toString(client.getId()));
                 cn_txt.setText(client.getName());
                 ct_txt.setText(client.getTel());

@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #122643;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.EnterBookController">
    <children>
       <Pane layoutX="92.0" layoutY="328.0" prefHeight="235.0" prefWidth="616.0" style="-fx-background-color: #1E385B; -fx-background-radius: 15; -fx-border-radius: 15;" />
-      <TextArea fx:id="des_txt" layoutX="111.0" layoutY="344.0" prefHeight="203.0" prefWidth="574.0">
+      <TextArea fx:id="des_txt" layoutX="111.0" layoutY="344.0" prefHeight="203.0" prefWidth="574.0" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>

@@ -54,6 +54,7 @@ public class LawyerScheduleDetailController {
                 scheduleArrayList = DBhelper.read_Schedule();
                 clientArrayList = DBhelper.read_Client();
                 lawyerArrayList = DBhelper.read_Lawyer();
+                des_txt.setWrapText(true);
                 for(Schedule u : scheduleArrayList){
                     for(Client l : clientArrayList){
                         if(u.getTime().equals(time)){

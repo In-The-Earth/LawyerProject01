@@ -27,7 +27,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="134.0" layoutY="237.0" prefHeight="341.0" prefWidth="527.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #1E385B;">
+      <Pane layoutX="134.0" layoutY="237.0" prefHeight="341.0" prefWidth="649.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #1E385B;">
          <children>
             <Label fx:id="ci_txt" layoutX="168.0" layoutY="242.0" prefHeight="21.0" prefWidth="192.0" textFill="RED">
                <font>
@@ -39,6 +39,26 @@
                   <Font size="17.0" />
                </font>
             </Button>
+            <Label fx:id="w2" layoutX="462.0" layoutY="160.0" prefHeight="21.0" prefWidth="169.0" text="w2" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="w1" layoutX="462.0" layoutY="109.0" prefHeight="21.0" prefWidth="169.0" text="w1" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="w3" layoutX="140.0" layoutY="232.0" prefHeight="21.0" prefWidth="169.0" text="w3" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="w4" layoutX="462.0" layoutY="204.0" prefHeight="21.0" prefWidth="169.0" text="w4" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <TextField fx:id="name_text" layoutX="268.0" layoutY="287.0" prefHeight="35.0" prefWidth="322.0" style="-fx-background-color: #122643; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-inner-color: white;">

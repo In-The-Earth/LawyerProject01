@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="time_txt" layoutX="230.0" prefHeight="32.0" prefWidth="138.0" text="time" textFill="WHITE">
+            <Label fx:id="time_txt" layoutX="230.0" prefHeight="32.0" prefWidth="158.0" text="time" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
