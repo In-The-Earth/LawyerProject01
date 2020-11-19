@@ -41,12 +41,12 @@ public class RegisterLawyerController {
         pi_txt.setText("");
 
         if(checkText_field()){
-            ci_txt.setText("Complete information!!");
+            ci_txt.setText("Complete Information!!");
             return;
         }
 
         if(checkUser() == true){
-            ut_txt.setText("this username is taken !");
+            ut_txt.setText("This username is taken !");
             if (pass_text.getText().equals(conpass_text.getText()) != true) {
                 pi_txt.setText("Incorrect Confirm !");
                 return;

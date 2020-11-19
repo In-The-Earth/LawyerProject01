@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
@@ -29,6 +30,8 @@ public class LoginPageController {
     private PasswordField pass_text;
     @FXML
     private Label uw_txt,paw_txt;
+    @FXML
+    private ImageView loginpic;
 
     private ArrayList<Users> usersArrayList = new ArrayList<>();
     private ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
@@ -43,6 +46,7 @@ public class LoginPageController {
                 clientArrayList = DBhelper.read_Client();
             }
         });
+
     }
 
 
