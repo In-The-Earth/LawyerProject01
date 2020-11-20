@@ -59,7 +59,7 @@ public class Schedule {
         this.day = day;
         this.time = time;
         this.schedule = schedule;
-        this.delete_lawyer = new Button("delete");
+        this.delete_lawyer = new Button("Delete");
         this.delete_lawyer.setOnAction(event -> {
             String[] ids = id_sup.split(":");
             String result = "";

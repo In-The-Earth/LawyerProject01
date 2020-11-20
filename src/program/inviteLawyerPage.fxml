@@ -5,19 +5,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.InviteLawyerController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #122643;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.InviteLawyerController">
    <children>
-      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="35.0" prefWidth="63.0" text="Back" />
-      <TableView fx:id="table" layoutX="77.0" layoutY="100.0" prefHeight="438.0" prefWidth="356.0">
-        <columns>
-          <TableColumn fx:id="ln_c" prefWidth="250.0" text="Lawyer Support Names" />
-          <TableColumn fx:id="delete_c" minWidth="0.0" prefWidth="105.0" text="delete" />
-        </columns>
-      </TableView>
-      <ComboBox fx:id="lch_cb" layoutX="460.0" layoutY="100.0" prefHeight="43.0" prefWidth="303.0" promptText="choose lawyer to add" />
-      <Button fx:id="add_ly_btn" layoutX="460.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleGoAdd_ly_btnOnAction" prefHeight="43.0" prefWidth="303.0" text="add" />
-      <Label fx:id="w" layoutX="460.0" layoutY="64.0" prefHeight="26.0" prefWidth="303.0" text="w" textFill="RED" />
+      <Pane layoutX="50.0" layoutY="85.0" prefHeight="499.0" prefWidth="687.0" style="-fx-background-color: #1E385B; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <TableView fx:id="table" layoutX="21.0" layoutY="39.0" prefHeight="438.0" prefWidth="356.0">
+              <columns>
+                <TableColumn fx:id="ln_c" prefWidth="250.0" text="Support Lawyer Names" />
+                <TableColumn fx:id="delete_c" minWidth="0.0" prefWidth="105.0" text="Delete" />
+              </columns>
+            </TableView>
+            <ComboBox fx:id="lch_cb" layoutX="387.0" layoutY="39.0" prefHeight="43.0" prefWidth="246.0" promptText="Choose Lawyer to add" />
+            <Button fx:id="add_ly_btn" layoutX="645.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleGoAdd_ly_btnOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #00B0C6; -fx-background-radius: 30; -fx-border-radius: 30;" text="Add" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Pane layoutX="42.0" layoutY="-25.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #22587D; -fx-background-radius: 15; -fx-border-radius: 15;">
+               <children>
+                  <Label layoutX="36.0" layoutY="10.0" text="Lawyer Name" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Label fx:id="w" layoutX="438.0" layoutY="92.0" prefHeight="26.0" prefWidth="303.0" text="w" textFill="RED" />
+      <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #00B0C6; -fx-background-radius: 30; -fx-border-radius: 30;" text="Back" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/left-arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

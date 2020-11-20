@@ -125,7 +125,17 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Button fx:id="ivl_btn" layoutX="357.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleGoIvl_btnOnAction" prefHeight="52.0" prefWidth="195.0" text="Invite lawyer" />
+            <Button fx:id="ivl_btn" layoutX="338.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleGoIvl_btnOnAction" prefHeight="36.0" prefWidth="250.0" style="-fx-background-color: #4CAF50; -fx-background-radius: 15; -fx-border-radius: 15;" text="Support Lawyer in this case" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/agreement.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </Pane>
       <Label layoutX="107.0" layoutY="49.0" text="Case Detail" textFill="WHITE">
