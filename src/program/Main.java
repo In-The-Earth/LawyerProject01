@@ -33,13 +33,13 @@ public class Main extends Application {
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             System.out.println("Connected");
             PreparedStatement create1 = connection.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS 'Users' ('ID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'UserType' TEXT);");
+                    "CREATE TABLE IF NOT EXISTS 'Users' ('UserID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'UserType' TEXT);");
             PreparedStatement create2 = connection.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS 'Lawyer' ('ID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'Name' TEXT, 'Email' TEXT, 'Tel' TEXT, 'Date' TEXT);");
+                    "CREATE TABLE IF NOT EXISTS 'Lawyer' ('LawyerID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'Name' TEXT, 'Email' TEXT, 'Tel' TEXT, 'Date' TEXT);");
             PreparedStatement create3 = connection.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS 'Client' ('ID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'Name' TEXT, 'Email' TEXT, 'Id_Card' TEXT, 'Tel' TEXT, 'Date' TEXT);");
+                    "CREATE TABLE IF NOT EXISTS 'Client' ('ClientID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Username' TEXT, 'Password' TEXT, 'Name' TEXT, 'Email' TEXT, 'Id_Card' TEXT, 'Tel' TEXT, 'Date' TEXT);");
             PreparedStatement create4 = connection.prepareStatement(
-                    "CREATE TABLE IF NOT EXISTS 'Schedule' ('ID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Client_ID' INTEGER, 'Lawyer_ID' INTEGER, 'TypeCase' TEXT, 'Status' TEXT, 'TypeWhere' TEXT, 'Time' TEXT, 'DAY' TEXT, 'ID_sup' TEXT, 'Description' TEXT);");
+                    "CREATE TABLE IF NOT EXISTS 'Schedule' ('ScheduleID' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Client_ID' INTEGER, 'Lawyer_ID' INTEGER, 'TypeCase' TEXT, 'Status' TEXT, 'TypeWhere' TEXT, 'Time' TEXT, 'DAY' TEXT, 'ID_sup' TEXT, 'Description' TEXT);");
             //
             //db table create
             //

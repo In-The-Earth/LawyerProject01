@@ -3,10 +3,7 @@ package Model;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import program.DBhelper;
-import program.LawyerScheduleRequestController;
-import program.LawyerScheduleRequestDetailController;
-import program.Main;
+import program.*;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
@@ -29,6 +26,7 @@ public class Schedule {
     private Button detail;
     private Button delete_lawyer;
     private String time_toString;
+    private Schedule schedule;
 
     public Schedule(int id, int client_id, int lawyer_id, String type_case, String status, String type_where, String time, String day, String id_sup, String des) {
         this.id = id;
@@ -52,17 +50,23 @@ public class Schedule {
         this.lawyer_name = lawyer_name;
     }
 
-    public Schedule(int id,int lawyer_id, String lawyer_name,String id_sup) {
+    public Schedule(int id,int lawyer_id, String lawyer_name,String id_sup,String lawyer_username,String day,String time,Schedule schedule) {
         this.id = id;
         this.lawyer_id = lawyer_id;
         this.lawyer_name = lawyer_name;
         this.id_sup = id_sup;
+        this.lawyer_username = lawyer_username;
+        this.day = day;
+        this.time = time;
+        this.schedule = schedule;
         this.delete_lawyer = new Button("delete");
         this.delete_lawyer.setOnAction(event -> {
             String[] ids = id_sup.split(":");
             String result = "";
             for(String u : ids){
-                if(!u.equals(lawyer_id)){
+                if(!u.equals(Integer.toString(lawyer_id))){
+//                    System.out.println(u);
+//                    System.out.println(lawyer_id);
                     if(result == ""){
                         result += u;
                     }else {
@@ -70,7 +74,22 @@ public class Schedule {
                     }
                 }
             }
+            if(result == ""){
+                result = "null";
+            }
+            System.out.println(result);
             DBhelper.update_ID_sup(id,result);
+            try {
+                FXMLLoader loader = Main.getLoader(InviteLawyerController.class,"inviteLawyerPage.fxml");
+                Main.change_scene(loader,InviteLawyerController.class,delete_lawyer,"inviteLawyerPage.fxml");
+                InviteLawyerController c = loader.getController();
+                c.setUsername(lawyer_username);
+                c.setDay(day);
+                c.setTime(time);
+                c.setSchedule(schedule);
+            }catch (Exception e){
+                System.out.println(e);
+            }
         });
     }
 

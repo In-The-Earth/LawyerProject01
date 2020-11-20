@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class LawyerScheduleDetailController {
     private String username;
     private Client client;
+    private Lawyer lawyer;
     private String time;
     private String day;
     private Schedule schedule;
@@ -31,7 +32,7 @@ public class LawyerScheduleDetailController {
     private ArrayList<Schedule> show_schedules = new ArrayList<>();
 
     @FXML
-    private Button back_btn,cancel_btn,add_ly_btn;
+    private Button back_btn,cancel_btn,ivl_btn;
     @FXML
     private Label cid_txt,cn_txt,ct_txt,cic_txt,ca_txt,day_txt,time_txt,w;
     @FXML
@@ -55,11 +56,23 @@ public class LawyerScheduleDetailController {
                 clientArrayList = DBhelper.read_Client();
                 lawyerArrayList = DBhelper.read_Lawyer();
                 des_txt.setWrapText(true);
+
+                for(Lawyer v : lawyerArrayList){
+                    if(username.equals(v.getUsername())){
+                        lawyer = new Lawyer(v.getId(),v.getUsername(),v.getPassword(),v.getName(),v.getEmail(),v.getTel(),v.getBirth_date());
+                    }
+                }
+
                 for(Schedule u : scheduleArrayList){
                     for(Client l : clientArrayList){
-                        if(u.getTime().equals(time)){
-                            if(u.getDay().equals(day)){
-                                schedule = new Schedule(u.getId(),u.getClient_id(),u.getLawyer_id(),u.getType_case(),u.getStatus(),u.getType_where(),u.getTime(),u.getDay(),u.getId_sup(),u.getDes());
+                        if(u.getLawyer_id() == lawyer.getId()) {
+                            System.out.println(u.getLawyer_id());
+                            System.out.println(lawyer.getId());
+                            if (u.getTime().equals(time)) {
+                                if (u.getDay().equals(day)) {
+                                    System.out.println(u.getId());
+                                    schedule = new Schedule(u.getId(), u.getClient_id(), u.getLawyer_id(), u.getType_case(), u.getStatus(), u.getType_where(), u.getTime(), u.getDay(), u.getId_sup(), u.getDes());
+                                }
                             }
                         }
                     }
@@ -75,6 +88,11 @@ public class LawyerScheduleDetailController {
                             client = new Client(v.getId(),v.getUsername(),v.getPassword(),v.getName(),v.getEmail(),v.getId_card(),v.getTel(),v.getBirth_date());
                         }
                     }
+                }
+                System.out.println(schedule.getId_sup());
+                System.out.println(schedule.getId());
+                if(schedule.getId_sup().equals("non")){
+                    ivl_btn.setDisable(true);
                 }
 //                if(!schedule.getId_sup().equals("null")){
 //                    String[] ids = schedule.getId_sup().split(":");
@@ -145,10 +163,48 @@ public class LawyerScheduleDetailController {
     }
 
     @FXML
+    public void handleGoIvl_btnOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = Main.getLoader(getClass(),"inviteLawyerPage.fxml");
+        Main.change_scene(loader,getClass(),ivl_btn,"inviteLawyerPage.fxml");
+        InviteLawyerController c = loader.getController();
+        c.setUsername(username);
+        c.setDay(day);
+        c.setTime(time);
+        c.setSchedule(schedule);
+    }
+
+    @FXML
     public void handleGoCancel_btnOnAction(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"You want to cancel this Booked?", ButtonType.YES,ButtonType.NO);
         alert.showAndWait();
         if(alert.getResult() == ButtonType.YES) {
+            if(schedule.getId_sup().equals("non")){
+                for(Schedule u : scheduleArrayList){
+                    if(u.getDay().equals(schedule.getDay())){
+                        if(u.getTime().equals(schedule.getTime())){
+                            String[] ids = u.getId_sup().split(":");
+                            String result = "";
+                            for(String v : ids){
+                                if(!v.equals(Integer.toString(schedule.getLawyer_id()))){
+//                    System.out.println(u);
+//                    System.out.println(lawyer_id);
+                                    if(result == ""){
+                                        result += v;
+                                    }else {
+                                        result += ":" + v;
+                                    }
+                                }
+                            }
+                            if(result == ""){
+                                result = "null";
+                            }
+                            System.out.println(result);
+                            DBhelper.update_ID_sup(u.getId(),result);
+                        }
+                    }
+                }
+            }
+
             DBhelper.delete_Schedule(schedule.getId());
             FXMLLoader loader = Main.getLoader(getClass(), "workSchedulePage.fxml");
             Main.change_scene(loader, getClass(), cancel_btn, "workSchedulePage.fxml");
@@ -181,7 +237,7 @@ public class LawyerScheduleDetailController {
 //        DBhelper.write_Schedule(schedule.getClient_id(),id_ly,schedule.getType_case(),"Accepted",schedule.getType_where(),time,day,"no",schedule.getDes());
 
         FXMLLoader loader = Main.getLoader(getClass(),"lawyerScheduleDetail.fxml");
-        Main.change_scene(loader,getClass(),add_ly_btn,"lawyerScheduleDetail.fxml");
+//        Main.change_scene(loader,getClass(),add_ly_btn,"lawyerScheduleDetail.fxml");
         LawyerScheduleDetailController c = loader.getController();
         c.setUsername(username);
         c.setTime(time);

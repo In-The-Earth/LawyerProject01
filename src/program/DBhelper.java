@@ -12,14 +12,14 @@ public class DBhelper {
 
     static public ArrayList<Users> read_Users(){
         ArrayList<Users> usersArrayList = new ArrayList<>();
-        String sql = "SELECT ID,Username,Password,UserType FROM Users";
+        String sql = "SELECT UserID,Username,Password,UserType FROM Users";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
-                usersArrayList.add(new Users(resultSet.getInt("ID"),resultSet.getString("Username"),resultSet.getString("Password"),resultSet.getString("UserType")));
+                usersArrayList.add(new Users(resultSet.getInt("UserID"),resultSet.getString("Username"),resultSet.getString("Password"),resultSet.getString("UserType")));
             }
         }
         catch (Exception e){
@@ -30,14 +30,14 @@ public class DBhelper {
 
     static public ArrayList<Lawyer> read_Lawyer(){
         ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
-        String sql = "SELECT ID,Username,Password,Name,Email,Tel,Date FROM Lawyer";
+        String sql = "SELECT LawyerID,Username,Password,Name,Email,Tel,Date FROM Lawyer";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
-                lawyerArrayList.add(new Lawyer(resultSet.getInt("ID"),resultSet.getString("Username"),resultSet.getString("Password"),resultSet.getString("Name"),
+                lawyerArrayList.add(new Lawyer(resultSet.getInt("LawyerID"),resultSet.getString("Username"),resultSet.getString("Password"),resultSet.getString("Name"),
                         resultSet.getString("Email"),resultSet.getString("Tel"),resultSet.getString("Date")));
             }
         }
@@ -49,14 +49,14 @@ public class DBhelper {
 
     static public ArrayList<Client> read_Client(){
         ArrayList<Client> clientArrayList = new ArrayList<>();
-        String sql = "SELECT ID,Username,Password,Name,Email,Id_Card,Tel,Date FROM Client";
+        String sql = "SELECT ClientID,Username,Password,Name,Email,Id_Card,Tel,Date FROM Client";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
-                clientArrayList.add(new Client(resultSet.getInt("ID"),resultSet.getString("Username"),resultSet.getString("Password"),resultSet.getString("Name"),
+                clientArrayList.add(new Client(resultSet.getInt("ClientID"),resultSet.getString("Username"),resultSet.getString("Password"),resultSet.getString("Name"),
                         resultSet.getString("Email"),resultSet.getString("Id_Card"),resultSet.getString("Tel"),resultSet.getString("Date")));
             }
         }
@@ -68,14 +68,14 @@ public class DBhelper {
 
     static public ArrayList<Schedule> read_Schedule(){
         ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
-        String sql = "SELECT ID,Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup,Description FROM Schedule";
+        String sql = "SELECT ScheduleID,Client_ID,Lawyer_ID,TypeCase,Status,TypeWhere,Time,DAY,ID_sup,Description FROM Schedule";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
-                scheduleArrayList.add(new Schedule(resultSet.getInt("ID"),resultSet.getInt("Client_ID"),resultSet.getInt("Lawyer_ID"),resultSet.getString("TypeCase"),
+                scheduleArrayList.add(new Schedule(resultSet.getInt("ScheduleID"),resultSet.getInt("Client_ID"),resultSet.getInt("Lawyer_ID"),resultSet.getString("TypeCase"),
                         resultSet.getString("Status"),resultSet.getString("TypeWhere"),resultSet.getString("Time"),resultSet.getString("DAY"),resultSet.getString("ID_sup"),resultSet.getString("Description")));
             }
         }
@@ -167,7 +167,7 @@ public class DBhelper {
     }
 
     static public void update_Status(int id ,String status){
-        String sql = "UPDATE Schedule SET Status = ? WHERE ID = ?";
+        String sql = "UPDATE Schedule SET Status = ? WHERE ScheduleID = ?";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
@@ -182,7 +182,7 @@ public class DBhelper {
     }
 
     static public void update_ID_sup(int id ,String id_sup){
-        String sql = "UPDATE Schedule SET ID_sup = ? WHERE ID = ?";
+        String sql = "UPDATE Schedule SET ID_sup = ? WHERE ScheduleID = ?";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");
@@ -194,10 +194,11 @@ public class DBhelper {
         catch (Exception e){
             System.out.println(e);
         }
+        System.out.println("success update id sup");
     }
 
     static public void delete_Schedule(int id ){
-        String sql = "DELETE FROM Schedule WHERE ID = ?";
+        String sql = "DELETE FROM Schedule WHERE ScheduleID = ?";
         Connection connection = null;
         try{
             connection = DriverManager.getConnection("jdbc:sqlite:lySchedule.db");

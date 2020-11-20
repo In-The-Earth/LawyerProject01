@@ -125,6 +125,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
+            <Button fx:id="ivl_btn" layoutX="357.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleGoIvl_btnOnAction" prefHeight="52.0" prefWidth="195.0" text="Invite lawyer" />
          </children>
       </Pane>
       <Label layoutX="107.0" layoutY="49.0" text="Case Detail" textFill="WHITE">
@@ -175,7 +176,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="des_txt" alignment="TOP_LEFT" layoutX="109.0" layoutY="337.0" prefHeight="185.0" prefWidth="535.0" text="description text" textFill="WHITE">
+      <Label fx:id="des_txt" alignment="TOP_LEFT" layoutX="109.0" layoutY="337.0" prefHeight="183.0" prefWidth="589.0" text="description text" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
