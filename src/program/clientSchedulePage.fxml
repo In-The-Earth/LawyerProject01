@@ -255,5 +255,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="w" layoutX="631.0" layoutY="201.0" prefHeight="17.0" prefWidth="155.0" text="w" textFill="RED" />
    </children>
 </AnchorPane>

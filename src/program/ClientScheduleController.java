@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public class ClientScheduleController {
@@ -22,7 +23,7 @@ public class ClientScheduleController {
     @FXML
     private DatePicker date_pick;
     @FXML
-    private Label d1,d2,d3,d4,d5,user_txt;
+    private Label d1,d2,d3,d4,d5,user_txt,w;
 
     private ArrayList<Client> clientArrayList = new ArrayList<>();
     private ArrayList<Schedule> scheduleArrayList = new ArrayList<>();
@@ -34,6 +35,7 @@ public class ClientScheduleController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
+                w.setText("");
                 System.out.println(username);
                 user_txt.setText(username);
                 clientArrayList = DBhelper.read_Client();
@@ -201,6 +203,32 @@ public class ClientScheduleController {
     public void handleSelectOnAction(ActionEvent event) throws IOException {
         Button b = (Button)event.getSource();
         if(b.getText().equals("-Free-")){
+            if(b.getId().charAt(0) == 'm'){
+                if(Period.between(LocalDate.parse(d1.getText()),LocalDate.now()).getDays() > 0 ){
+                    w.setText("can't select the past day!");
+                    return;
+                }
+            }else if(b.getId().charAt(0) == 'w'){
+                if(Period.between(LocalDate.parse(d3.getText()),LocalDate.now()).getDays() > 0 ){
+                    w.setText("can't select the past day!");
+                    return;
+                }
+            }else if(b.getId().charAt(0) == 'f'){
+                if(Period.between(LocalDate.parse(d5.getText()),LocalDate.now()).getDays() > 0 ){
+                    w.setText("can't select the past day!");
+                    return;
+                }
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'u'){
+                if(Period.between(LocalDate.parse(d2.getText()),LocalDate.now()).getDays() > 0 ){
+                    w.setText("can't select the past day!");
+                    return;
+                }
+            }else if(b.getId().charAt(0) == 't'& b.getId().charAt(1) == 'h'){
+                if(Period.between(LocalDate.parse(d4.getText()),LocalDate.now()).getDays() > 0 ){
+                    w.setText("can't select the past day!");
+                    return;
+                }
+            }
             FXMLLoader loader = Main.getLoader(getClass(),"enter_book.fxml");
             Main.change_scene(loader,getClass(),b,"enter_book.fxml");
             EnterBookController c = loader.getController();

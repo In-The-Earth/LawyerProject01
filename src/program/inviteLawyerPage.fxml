@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.InviteLawyerController">
    <children>
       <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleGoBack_btnOnAction" prefHeight="35.0" prefWidth="63.0" text="Back" />
@@ -19,6 +18,6 @@
       </TableView>
       <ComboBox fx:id="lch_cb" layoutX="460.0" layoutY="100.0" prefHeight="43.0" prefWidth="303.0" promptText="choose lawyer to add" />
       <Button fx:id="add_ly_btn" layoutX="460.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleGoAdd_ly_btnOnAction" prefHeight="43.0" prefWidth="303.0" text="add" />
-      <Label fx:id="w" layoutX="460.0" layoutY="64.0" prefHeight="26.0" prefWidth="303.0" text="Label" />
+      <Label fx:id="w" layoutX="460.0" layoutY="64.0" prefHeight="26.0" prefWidth="303.0" text="w" textFill="RED" />
    </children>
 </AnchorPane>
