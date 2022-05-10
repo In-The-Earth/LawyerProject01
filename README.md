@@ -1,6 +1,6 @@
 # LawyerProject01
 
-Lawyer Scheduling Appointment Desktop Application can help lawyer and clients to make an appointment easier. Show schedule and help lawyer manage the time using Java language.
+Lawyer Scheduling Appointment Desktop Application can help lawyer and clients to make an appointment easier. Show schedule and help lawyer manage the time using Java language,Scene Builder and SQL.
 
 ![1652176772509](https://user-images.githubusercontent.com/48666197/167603637-fe1f094a-9be7-49e7-81be-57f997fe6979.jpg)
 
